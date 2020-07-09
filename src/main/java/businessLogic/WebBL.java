@@ -57,6 +57,13 @@ public class WebBL {
 		return outputMap;
 	}
 	
+	public HashMap<String, String> performDirectoryBackButton(WebDriver driver, HashMap<String, String> dataMap) {
+		performPrerequisitesDirectoryBackButton(driver, dataMap);
+		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
+		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
+		return outputMap;
+	}
+	
 	public HashMap<String, String> performDirectoryInternalSearch(WebDriver driver, HashMap<String, String> dataMap) {
 		performPrerequisitesDirectoryInternalSearch(driver, dataMap);
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
@@ -405,6 +412,25 @@ public class WebBL {
 			System.out.println(e);
 		}
 	}
+	
+	public void performPrerequisitesDirectoryBackButton(WebDriver driver, HashMap<String, String> dataMap) {
+		try {
+			System.out.println(dataMap);
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap.get("URL"));
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			loginPage.clickStartingPoint();
+			dirPage.clickOnDirectoryMenuTo(dataMap.get("ToDirectoryMenu"));
+			dirPage.clickOnDirectoryBackButton(dataMap.get("BROWSER_NAME"));
+			
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	
 
 	public void performPrerequisitesDirectory(WebDriver driver, HashMap<String, String> dataMap) {
 		try {

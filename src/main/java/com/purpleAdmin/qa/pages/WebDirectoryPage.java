@@ -3,6 +3,7 @@ package com.purpleAdmin.qa.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,6 +45,12 @@ public class WebDirectoryPage extends TestBase {
 
 	@FindBy(xpath = "//span[@class='indexColumn']")
 	WebElement firstResultAfterDirectoryInternalSearch;
+	
+	@FindBy(tagName = "ion-icon")
+	WebElement directoryBackArrowTag;
+
+	@FindBy(xpath = "//div[@class ='checkboxTerms']//ion-checkbox")
+	WebElement eULAchkBox;
 
 	Boolean blnFlag = false;
 
@@ -177,6 +184,33 @@ public class WebDirectoryPage extends TestBase {
 			firstResultAfterDirectoryInternalSearch.click();
 		}
 
+	}
+	
+	
+	public void clickOnDirectoryBackButton(String browserName) {
+		if (browserName.equals("Chrome")) {
+			if (TestUtil.waitForElementPresence(directoryBackArrowTag, driver)) {
+				WebElement shadowRoot1 = TestUtil.expandRootElement(directoryBackArrowTag);
+				shadowRoot1.findElement(By.cssSelector("button.backMenu")).click();
+				;
+			}
+		}
+//		if (browserName.equals("FF") || browserName.equals("Edge") || browserName.equals("IE")) {
+//			try {
+//				Thread.sleep(15000);
+//				JavascriptExecutor executor = (JavascriptExecutor) driver;
+//				executor.executeScript("arguments[0].click();", eULAchkBox);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//		}
+//		if (browserName.equals("Safari")) {
+//			if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
+//				eULAchkBox.click();
+//			}
+//		}
 	}
 
 }
