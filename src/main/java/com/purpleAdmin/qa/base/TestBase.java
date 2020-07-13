@@ -79,7 +79,7 @@ public class TestBase {
 		} else if (browserName.equals("IE")) {
 		//	System.setProperty("webdriver.ie.driver", path + "/src/main/resources/browserSetup/IEDriverServer.exe");  // For Mac
 			System.setProperty("webdriver.ie.driver", path + "/src/main/resources/browserSetup/Win/IEDriverServer.exe"); // For Window 64 bit
-			driver = new ChromeDriver();
+			driver = new InternetExplorerDriver();
 		}
 
 		e_driver = new EventFiringWebDriver(driver);
