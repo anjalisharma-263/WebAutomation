@@ -7,7 +7,6 @@
 	<test name="Web App">
 		<classes>
 			<class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases"></class>
-			<class name="com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases"></class>
 		</classes>
 	</test>
 </suite>
