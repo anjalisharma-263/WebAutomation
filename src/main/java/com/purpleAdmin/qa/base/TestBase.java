@@ -63,8 +63,8 @@ public class TestBase {
 
 	public static void initialization(String browserName, String Campus) {
 		if (browserName.equals("Chrome")) {
-			//System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/chromedrivernew");  // For Mac
-			System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/Win/chromedriver.exe"); // For Window 64 bit
+			System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/chromedrivernew");  // For Mac
+			//System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/Win/chromedriver.exe"); // For Window 64 bit
 			driver = new ChromeDriver();
 		} else if (browserName.equals("FF")) {
 		//	System.setProperty("webdriver.gecko.driver", path + "/src/main/resources/browserSetup/geckodriver");   // For Mac
