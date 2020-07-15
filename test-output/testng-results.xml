@@ -1,72 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="2" total="8" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="50136" started-at="2020-07-13T07:19:43Z" finished-at="2020-07-13T07:20:33Z">
+  <suite name="Web Tool Automation Test Suite" duration-ms="173301" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:28:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="50136" started-at="2020-07-13T07:19:43Z" finished-at="2020-07-13T07:20:33Z">
-      <class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases">
-        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@402bba4f]" name="setExtentReport" is-config="true" duration-ms="314" started-at="2020-07-13T07:19:43Z" finished-at="2020-07-13T07:19:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setExtentReport -->
-        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@402bba4f]" name="createTest" is-config="true" duration-ms="9" started-at="2020-07-13T07:19:43Z" finished-at="2020-07-13T07:19:43Z">
+    <test name="Web App" duration-ms="173301" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:28:40Z">
+      <class name="com.purpleAdmin.qa.testcases.WebEmailPrintTestCases">
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@71bbf57e]" name="createTest" is-config="true" duration-ms="9" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:25:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTest -->
-        <test-method status="SKIP" signature="ValidateDirectoryInternalSearch(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@402bba4f]" name="ValidateDirectoryInternalSearch" duration-ms="0" started-at="2020-07-13T07:20:33Z" data-provider="getData" finished-at="2020-07-13T07:20:33Z">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[java.lang.NoSuchFieldError: RETURN_BLANK_AS_NULL]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: java.lang.NoSuchFieldError: RETURN_BLANK_AS_NULL
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
-at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:131)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:706)
-at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:49)
-at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:37)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:924)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.NoSuchFieldError: RETURN_BLANK_AS_NULL
-at com.codoid.products.fillo.CommonExcelUtil.getColumnNames(CommonExcelUtil.java:85)
-at com.codoid.products.fillo.SelectExcelUtil.runSelectQuery(SelectExcelUtil.java:85)
-at com.codoid.products.fillo.Select.getRecordset(Select.java:61)
-at com.codoid.products.fillo.Connection.executeQuery(Connection.java:64)
-at com.purpleAdmin.qa.base.TestBase.getDataForDataProvider(TestBase.java:123)
-at com.purpleAdmin.qa.base.TestBase.getData(TestBase.java:109)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:74)
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
-... 22 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@711f39f9]" name="createTest" is-config="true" duration-ms="0" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:25:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidateDirectoryInternalSearch -->
+        </test-method> <!-- createTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@71bbf57e]" name="tearDown" is-config="true" duration-ms="65" started-at="2020-07-15T11:28:40Z" finished-at="2020-07-15T11:28:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.purpleAdmin.qa.testcases.WebEmailPrintTestCases -->
+      <class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases">
+        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@711f39f9]" name="setExtentReport" is-config="true" duration-ms="382" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:25:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setExtentReport -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@711f39f9]" name="setUp" is-config="true" duration-ms="1" started-at="2020-07-15T11:28:06Z" finished-at="2020-07-15T11:28:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateOnsiteDirections(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@711f39f9]" name="validateOnsiteDirections" duration-ms="32799" started-at="2020-07-15T11:28:06Z" data-provider="getData" finished-at="2020-07-15T11:28:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, CAMPUS_NAME=Summa, URL=http://summahealth.yourdirectroute.com/, STARTING_POINT=4 East PCCU, DESTINATION_POINT=5 North ACE Unit, FromSubMenu1=, SNO=1, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateOnsiteDirections, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateOnsiteDirections -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@711f39f9]" name="tearDown" is-config="true" duration-ms="946" started-at="2020-07-15T11:28:39Z" finished-at="2020-07-15T11:28:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases">
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="createTest" is-config="true" duration-ms="1" started-at="2020-07-15T11:25:47Z" finished-at="2020-07-15T11:25:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTest -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T11:25:48Z" finished-at="2020-07-15T11:25:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateAppOverviewBtn(java.util.HashMap)[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="validateAppOverviewBtn" duration-ms="34155" started-at="2020-07-15T11:25:48Z" data-provider="getData" finished-at="2020-07-15T11:26:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, CAMPUS_NAME=AMC, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=5, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateAppOverviewBtn, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAppOverviewBtn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="tearDown" is-config="true" duration-ms="1515" started-at="2020-07-15T11:26:22Z" finished-at="2020-07-15T11:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="setUp" is-config="true" duration-ms="1" started-at="2020-07-15T11:26:23Z" finished-at="2020-07-15T11:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateEULABtn(java.util.HashMap)[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="validateEULABtn" duration-ms="25971" started-at="2020-07-15T11:26:23Z" data-provider="getData" finished-at="2020-07-15T11:26:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, CAMPUS_NAME=AMC, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=7, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateEULABtn, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateEULABtn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="tearDown" is-config="true" duration-ms="998" started-at="2020-07-15T11:26:49Z" finished-at="2020-07-15T11:26:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T11:26:50Z" finished-at="2020-07-15T11:26:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateFAQsBtn(java.util.HashMap)[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="validateFAQsBtn" duration-ms="23342" started-at="2020-07-15T11:26:50Z" data-provider="getData" finished-at="2020-07-15T11:27:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=Albany Med RouteFinder, CAMPUS_NAME=AMC, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=9, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateFAQsBtn, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateFAQsBtn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="tearDown" is-config="true" duration-ms="986" started-at="2020-07-15T11:27:14Z" finished-at="2020-07-15T11:27:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T11:27:15Z" finished-at="2020-07-15T11:27:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validatePrivacyPolicyBtn(java.util.HashMap)[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="validatePrivacyPolicyBtn" duration-ms="28966" started-at="2020-07-15T11:27:15Z" data-provider="getData" finished-at="2020-07-15T11:27:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, CAMPUS_NAME=AMC, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=6, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validatePrivacyPolicyBtn, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validatePrivacyPolicyBtn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="tearDown" is-config="true" duration-ms="879" started-at="2020-07-15T11:27:44Z" finished-at="2020-07-15T11:27:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T11:27:44Z" finished-at="2020-07-15T11:27:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateSubmitFeedbackBtn(java.util.HashMap)[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="validateSubmitFeedbackBtn" duration-ms="20950" started-at="2020-07-15T11:27:44Z" data-provider="getData" finished-at="2020-07-15T11:28:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=Albany Med RouteFinder, CAMPUS_NAME=AMC, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=8, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateSubmitFeedbackBtn, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateSubmitFeedbackBtn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@7f13d6e]" name="tearDown" is-config="true" duration-ms="976" started-at="2020-07-15T11:28:05Z" finished-at="2020-07-15T11:28:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases -->
+    </test> <!-- Web App -->
+  </suite> <!-- Web Tool Automation Test Suite -->
 </testng-results>

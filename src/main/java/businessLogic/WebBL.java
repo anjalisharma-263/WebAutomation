@@ -24,6 +24,7 @@ import com.purpleAdmin.qa.pages.WebDirectoryPage;
 import com.purpleAdmin.qa.pages.WebHamburgerPage;
 import com.purpleAdmin.qa.pages.WebLoginPage;
 import com.purpleAdmin.qa.pages.WebMapPage;
+import com.purpleAdmin.qa.pages.WebEmailPrintPage;
 import com.purpleAdmin.qa.util.TestUtil;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -35,6 +36,7 @@ public class WebBL {
 	WebDirectoryPage dirPage = new WebDirectoryPage();
 	WebMapPage mapPage = new WebMapPage();
 	WebHamburgerPage webHamburgerPage = new WebHamburgerPage();
+	WebEmailPrintPage webEmailPrintPage = new WebEmailPrintPage();
 	Boolean isMapDisplayed = false;
 	Boolean isBlueDotDisplayed = false;
 	Boolean isNavigationStepsDisplayed = false;
@@ -43,7 +45,7 @@ public class WebBL {
 	HashMap<String, String> outputMap = new HashMap<String, String>();
 	ExtentTest extentTest = null;
 	Boolean blnFlag = false;
-	
+
 	public HashMap<String, String> performPasteURLInNewTab(WebDriver driver, HashMap<String, String> dataMap) {
 		performPrerequisitesPasteURLInNewTab(driver, dataMap);
 		isNavigationStepsDisplayed = dirPage.clickViewOnMap();
@@ -56,14 +58,14 @@ public class WebBL {
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
 	}
-	
+
 	public HashMap<String, String> performDirectoryBackButton(WebDriver driver, HashMap<String, String> dataMap) {
 		performPrerequisitesDirectoryBackButton(driver, dataMap);
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
 	}
-	
+
 	public HashMap<String, String> performDirectoryInternalSearch(WebDriver driver, HashMap<String, String> dataMap) {
 		performPrerequisitesDirectoryInternalSearch(driver, dataMap);
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
@@ -78,7 +80,7 @@ public class WebBL {
 		isMapDisplayed = mapPage.verifyOnsiteMapPresence();
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
 		outputMap.put("NAVIGATION_STATUS", String.valueOf(isNavigationStepsDisplayed));
-		outputMap.put("NavigationStepsClickable_STATUS", String.valueOf(isNavigationStepsDisplayed));
+		outputMap.put("NAVIGATION_STEPS_CLICKABLE_STATUS", String.valueOf(isNavigationStepsDisplayed));
 		outputMap.put("MAP_STATUS", String.valueOf(isMapDisplayed));
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
@@ -137,17 +139,19 @@ public class WebBL {
 
 	public HashMap<String, String> performOffsiteOnisteDirectionsReverse(WebDriver driver,
 			HashMap<String, String> dataMap) {
+		Boolean isgooglePointsABVisible = false;
 		performPrerequisites(driver, dataMap);
 		dirPage.selectParkingFromMenu();
 		dirPage.clickViewOnMap();
-		dirPage.clickReverseDirection();
-		dirPage.selectParkingFromMenu();
+
 		isMapDisplayed = mapPage.verifyOffsiteOnsiteMapPresence();
+		isgooglePointsABVisible = mapPage.isGooglePointABVisible();
 		isNavigationStepsDisplayed = dirPage.clickViewOnMapForOffiste();
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
 		// mapPage.verifyPointAB();
 		outputMap.put("NAVIGATION_STATUS", String.valueOf(isNavigationStepsDisplayed));
 		outputMap.put("MAP_STATUS", String.valueOf(isMapDisplayed));
+		outputMap.put("GOOGLE_POINTS_STATUS", String.valueOf(isgooglePointsABVisible));
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
 	}
@@ -158,23 +162,21 @@ public class WebBL {
 		driver.get(dataMap.get("URL"));
 		acceptTermsDisplayed(dataMap);
 		isReverseIconEnabled = dirPage.isReverseIconEnabled();
-		outputMap.put("Reverse icon state when there is no starting/destination point",
-				String.valueOf(isReverseIconEnabled));
+		outputMap.put("INITIAL_REVERSE_ICON_STATUS", String.valueOf(isReverseIconEnabled));
 		loginPage.clickStartingPoint();
 		dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
 		Thread.sleep(5000);
 		dirPage.ExpandIconPoint();
 		dirPage.clickMapIt();
 		isReverseIconEnabled = dirPage.isReverseIconEnabled();
-		outputMap.put("Reverse icon state with only starting point", String.valueOf(isReverseIconEnabled));
+		outputMap.put("REVERSE_ICON_WITH_STARTINGPOINT_STATUS", String.valueOf(isReverseIconEnabled));
 		dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
 		dirPage.ExpandIconPoint();
 		dirPage.clickMapIt();
-		TestUtil.clearData(dirPage.startingPoint);
-		TestUtil.clearData(dirPage.destinationPoint);
+		dirPage.clearStartingPointText();
+		dirPage.clearDestinationPointText();
 		isReverseIconEnabled = dirPage.isReverseIconEnabled();
-		outputMap.put("Reverse icon state after clearing starting/destination point",
-				String.valueOf(isReverseIconEnabled));
+		outputMap.put("REVERSE_ICON_CLEARROUTE_STATUS", String.valueOf(isReverseIconEnabled));
 		return outputMap;
 	}
 
@@ -184,7 +186,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
 			webHamburgerPage.clickClearRoute();
-			isTextCleared = TestUtil.compareText(loginPage.startingPoint, "");
+			isTextCleared = loginPage.isTextCleared();
 			System.out.print(isTextCleared);
 			outputMap.put("CLEARROUTE_STATUS", String.valueOf(isTextCleared));
 		} catch (Exception e) {
@@ -208,14 +210,15 @@ public class WebBL {
 			Boolean isPPolicyTextLoaded = false;
 			Boolean isPPolicyClosed = false;
 			driver.get(dataMap.get("URL"));
+			Thread.sleep(9000);
 			acceptTermsDisplayed(dataMap);
 			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
 			webHamburgerPage.clickPrivacyPolicy();
 			isPPolicyTextLoaded = webHamburgerPage.isPrivacyPolicyLoaded();
-			TestUtil.scrollByVisibleElement(webHamburgerPage.endOfPPolicy);
+			webHamburgerPage.scrolldownPrivacyPolicy();
 			isPPolicyClosed = webHamburgerPage.clickClosePPolicy();
 			outputMap.put("PRIVACYPOLICY_STATUS", String.valueOf(isPPolicyTextLoaded));
-			outputMap.put("PPolicyCLOSE_STATUS", String.valueOf(isPPolicyClosed));
+			outputMap.put("PRIVACY_POLICY_CLOSE_STATUS", String.valueOf(isPPolicyClosed));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -227,11 +230,12 @@ public class WebBL {
 			Boolean isEULATextLoaded = false;
 			Boolean isEULAClosed = false;
 			driver.get(dataMap.get("URL"));
+			Thread.sleep(9000);
 			acceptTermsDisplayed(dataMap);
 			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
 			webHamburgerPage.clickEULAFromHamburger();
 			isEULATextLoaded = webHamburgerPage.isEULALoaded();
-			TestUtil.scrollByVisibleElement(webHamburgerPage.endOfEULA);
+			webHamburgerPage.scrolldownEULA();
 			isEULAClosed = webHamburgerPage.clickCloseEULAIcon();
 			outputMap.put("EULA_STATUS", String.valueOf(isEULATextLoaded));
 			outputMap.put("EULACLOSE_STATUS", String.valueOf(isEULAClosed));
@@ -247,7 +251,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isMapZoomedIn = mapPage.verifyMapZoomIn();
 			System.out.print(isMapZoomedIn);
-			outputMap.put("ZoomIn_STATUS", String.valueOf(isMapZoomedIn));
+			outputMap.put("ZOOMIN_STATUS", String.valueOf(isMapZoomedIn));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -260,7 +264,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isMapZoomedOut = mapPage.verifyMapZoomOut();
 			System.out.print(isMapZoomedOut);
-			outputMap.put("ZoomOut_STATUS", String.valueOf(isMapZoomedOut));
+			outputMap.put("ZOOMOUT_STATUS", String.valueOf(isMapZoomedOut));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -273,7 +277,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isMapRecentered = mapPage.verifyMapRecenter();
 			System.out.print(isMapRecentered);
-			outputMap.put("MapRecenter_STATUS", String.valueOf(isMapRecentered));
+			outputMap.put("MAP_RECENTER_STATUS", String.valueOf(isMapRecentered));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -286,7 +290,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isMapRotatedLeft = mapPage.verifyMapRotateLeft();
 			System.out.print(isMapRotatedLeft);
-			outputMap.put("MapRotateLeft_STATUS", String.valueOf(isMapRotatedLeft));
+			outputMap.put("MAP_ROTATE_LEFT_STATUS", String.valueOf(isMapRotatedLeft));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -299,7 +303,7 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isMapRotatedRight = mapPage.verifyMapRotateLeft();
 			System.out.print(isMapRotatedRight);
-			outputMap.put("MapRotateRight_STATUS", String.valueOf(isMapRotatedRight));
+			outputMap.put("MAP_ROTATE_RIGHT_STATUS", String.valueOf(isMapRotatedRight));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -312,13 +316,12 @@ public class WebBL {
 			performPrerequisites(driver, dataMap);
 			isKeyLegendLoaded = mapPage.verifyKeyLegends();
 			System.out.print(isKeyLegendLoaded);
-			outputMap.put("KeyLegends_STATUS", String.valueOf(isKeyLegendLoaded));
+			outputMap.put("KEYLEGENDS_STATUS", String.valueOf(isKeyLegendLoaded));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
-
 
 	public void acceptTermsDisplayed(HashMap<String, String> dataMap) {
 		String campusName = dataMap.get("CAMPUS_NAME");
@@ -343,7 +346,7 @@ public class WebBL {
 			System.out.print("no EULA popup displayed");
 		}
 	}
-	
+
 	public void performPrerequisitesPasteURLInNewTab(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			System.out.println(dataMap);
@@ -395,7 +398,7 @@ public class WebBL {
 			System.out.println(e);
 		}
 	}
-	
+
 	public void performPrerequisitesDirectoryInternalSearch(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			System.out.println(dataMap);
@@ -412,7 +415,7 @@ public class WebBL {
 			System.out.println(e);
 		}
 	}
-	
+
 	public void performPrerequisitesDirectoryBackButton(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			System.out.println(dataMap);
@@ -423,14 +426,11 @@ public class WebBL {
 			loginPage.clickStartingPoint();
 			dirPage.clickOnDirectoryMenuTo(dataMap.get("ToDirectoryMenu"));
 			dirPage.clickOnDirectoryBackButton(dataMap.get("BROWSER_NAME"));
-			
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	
-	
 
 	public void performPrerequisitesDirectory(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
@@ -500,44 +500,71 @@ public class WebBL {
 		}
 	}
 
+	// Before merge..May be remove
+	// public HashMap<String, String> performAppOverview(WebDriver driver,
+	// HashMap<String, String> dataMap)
+	// throws InterruptedException {
+	//
+	// Boolean isAppOverViewForwardIconDispalyed = false;
+	// Boolean isAppOverViewBackIconDispalyed = false;
+	// Boolean isAppOverViewImagesDispalyed = false;
+	// driver.get(dataMap.get("URL"));
+	// System.out.println(dataMap);
+	// acceptTermsDisplayed(dataMap);
+	// webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+	// Thread.sleep(5000);
+	// webHamburgerPage.clickAppOverview();
+	//
+	// for (int i = 0; i < 3; i++) {
+	// if (TestUtil.waitForElementPresence(webHamburgerPage.SkipTutForwardIcon,
+	// driver)) {
+	// isAppOverViewForwardIconDispalyed = true;
+	// webHamburgerPage.SkipTutForwardIcon.click();
+	// } else {
+	// System.out.println("Forward icon is not present");
+	// }
+	//
+	// }
+	// for (int j = 0; j < 3; j++) {
+	// if (TestUtil.waitForElementPresence(webHamburgerPage.SkipTutBackwardIcon,
+	// driver)) {
+	// isAppOverViewBackIconDispalyed = true;
+	// webHamburgerPage.SkipTutBackwardIcon.click();
+	// }
+	// }
+	// if (isAppOverViewForwardIconDispalyed) {
+	// isAppOverViewImagesDispalyed =
+	// AppOverviewListaWebElement(webHamburgerPage.SkipTutImg1,
+	// webHamburgerPage.SkipTutImg2, webHamburgerPage.SkipTutImg3,
+	// webHamburgerPage.SkipTutImg4,
+	// webHamburgerPage.SkipTutForwardIcon, driver);
+	// } else {
+	// System.out.println("Forward icon is not present");
+	// }
+	// outputMap.put("AppOverViewForwardIcon_Status",
+	// String.valueOf(isAppOverViewForwardIconDispalyed));
+	// outputMap.put("AppOverViewBackIcon_Status",
+	// String.valueOf(isAppOverViewBackIconDispalyed));
+	// outputMap.put("AppOverImages_Status",
+	// String.valueOf(isAppOverViewImagesDispalyed));
+	// return outputMap;
+	// }
+
 	public HashMap<String, String> performAppOverview(WebDriver driver, HashMap<String, String> dataMap)
 			throws InterruptedException {
-
 		Boolean isAppOverViewForwardIconDispalyed = false;
-		Boolean isAppOverViewBackIconDispalyed = false;
 		Boolean isAppOverViewImagesDispalyed = false;
 		driver.get(dataMap.get("URL"));
 		System.out.println(dataMap);
+		Thread.sleep(9000);
 		acceptTermsDisplayed(dataMap);
 		webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
 		Thread.sleep(5000);
 		webHamburgerPage.clickAppOverview();
-
-		for (int i = 0; i < 3; i++) {
-			if (TestUtil.waitForElementPresence(webHamburgerPage.SkipTutForwardIcon, driver)) {
-				isAppOverViewForwardIconDispalyed = true;
-				webHamburgerPage.SkipTutForwardIcon.click();
-			} else {
-				System.out.println("Forward icon is not present");
-			}
-
-		}
-		for (int j = 0; j < 3; j++) {
-			if (TestUtil.waitForElementPresence(webHamburgerPage.SkipTutBackwardIcon, driver)) {
-				isAppOverViewBackIconDispalyed = true;
-				webHamburgerPage.SkipTutBackwardIcon.click();
-			}
-		}
-		if (isAppOverViewForwardIconDispalyed) {
-			isAppOverViewImagesDispalyed = AppOverviewListaWebElement(webHamburgerPage.SkipTutImg1,
-					webHamburgerPage.SkipTutImg2, webHamburgerPage.SkipTutImg3, webHamburgerPage.SkipTutImg4,
-					webHamburgerPage.SkipTutForwardIcon, driver);
-		} else {
-			System.out.println("Forward icon is not present");
-		}
-		outputMap.put("AppOverViewForwardIcon_Status", String.valueOf(isAppOverViewForwardIconDispalyed));
-		outputMap.put("AppOverViewBackIcon_Status", String.valueOf(isAppOverViewBackIconDispalyed));
-		outputMap.put("AppOverImages_Status", String.valueOf(isAppOverViewImagesDispalyed));
+		isAppOverViewForwardIconDispalyed = webHamburgerPage.isAppOverviewForwardIconPresent();
+		isAppOverViewImagesDispalyed = webHamburgerPage.isAppOverviewImagePresent();
+		outputMap.put("APPOVERVIEW_FORWARD_ICON_STATUS", String.valueOf(isAppOverViewForwardIconDispalyed));
+		outputMap.put("APPOVERVIEW_IMAGES_STATUS", String.valueOf(isAppOverViewImagesDispalyed));
 		return outputMap;
 	}
 
@@ -568,21 +595,27 @@ public class WebBL {
 		String actualPageTitle = "";
 		String expectedPageTitle = dataMap.get("EXPECTED_TITLE");
 		Boolean isSubmitFeedbackDispalyed = false;
-		driver.get(dataMap.get("URL"));
-		System.out.println(dataMap);
-		acceptTermsDisplayed(dataMap);
-		webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
-		webHamburgerPage.clickSubmitFeedback();
-		actualPageTitle = driver.getTitle();
-		System.out.println(actualPageTitle);
-		System.out.println(expectedPageTitle);
-		if (actualPageTitle.equals(expectedPageTitle)) {
-			System.out.println("Submit feedback link is functional");
-			isSubmitFeedbackDispalyed = true;
-		} else {
-			System.out.println("Submit feedback link is not functional");
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+			webHamburgerPage.clickSubmitFeedback();
+			// TODO create method for attribute
+			actualPageTitle = driver.getTitle();
+			System.out.println(actualPageTitle);
+			System.out.println(expectedPageTitle);
+			if (actualPageTitle.equals(expectedPageTitle)) {
+				System.out.println("Submit feedback link is functional");
+				isSubmitFeedbackDispalyed = true;
+			} else {
+				System.out.println("Submit feedback link is not functional");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		outputMap.put("SubmitFeedback_Status", String.valueOf(isSubmitFeedbackDispalyed));
+		outputMap.put("SUBMIT_FEEDBACK_STATUS", String.valueOf(isSubmitFeedbackDispalyed));
 		return outputMap;
 	}
 
@@ -590,32 +623,64 @@ public class WebBL {
 		String actualPageTitle = "";
 		String expectedPageTitle = dataMap.get("EXPECTED_TITLE");
 		Boolean isFAQsDispalyed = false;
-		driver.get(dataMap.get("URL"));
-		System.out.println(dataMap);
-		acceptTermsDisplayed(dataMap);
-		webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
-		webHamburgerPage.clickfAQs();
-		actualPageTitle = driver.getTitle();
-		System.out.println(actualPageTitle);
-		System.out.println(expectedPageTitle);
-		if (actualPageTitle.equals(expectedPageTitle)) {
-			System.out.println("FAQs link is functional");
-			isFAQsDispalyed = true;
-		} else {
-			System.out.println("FAQs link is not functional");
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+			webHamburgerPage.clickfAQs();
+			actualPageTitle = driver.getTitle();
+			System.out.println(actualPageTitle);
+			System.out.println(expectedPageTitle);
+			if (actualPageTitle.equals(expectedPageTitle)) {
+				System.out.println("FAQs link is functional");
+				isFAQsDispalyed = true;
+			} else {
+				System.out.println("FAQs link is not functional");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		outputMap.put("FAQs_Status", String.valueOf(isFAQsDispalyed));
+		outputMap.put("FAQs_STATUS", String.valueOf(isFAQsDispalyed));
 		return outputMap;
 	}
 
 	public HashMap<String, String> verifyCompanyLogo(WebDriver driver, HashMap<String, String> dataMap)
 			throws InterruptedException {
 		Boolean isCompanyLogoPresent = false;
-		// driver.get(dataMap.get("URL"));
-		// System.out.println(dataMap);
-		// acceptTermsDisplayed(dataMap);
 		isCompanyLogoPresent = loginPage.isLogoPresent();
-		outputMap.put("Company_LOGO_Status", String.valueOf(isCompanyLogoPresent));
+		outputMap.put("COMPANY_LOGO_STATUS", String.valueOf(isCompanyLogoPresent));
 		return outputMap;
 	}
+
+	public HashMap<String, String> performEmail(WebDriver driver, HashMap<String, String> dataMap) {
+		Boolean isemailSent = false;
+		String email = dataMap.get("EMAIL");
+		performPrerequisites(driver, dataMap);
+		webEmailPrintPage.clickEmailBtn();
+		webEmailPrintPage.enterEmail(email);
+		webEmailPrintPage.clickSendEmail();
+		String actualSentMessage = dataMap.get("EMAILSENTMESSAGE");
+		if (actualSentMessage.equals(webEmailPrintPage.getSentMessage()))
+			;
+		{
+			isemailSent = true;
+		}
+		webEmailPrintPage.closeSendEmail();
+		outputMap.put("EMAIL_STATUS", String.valueOf(isemailSent));
+		return outputMap;
+	}
+
+	public HashMap<String, String> performPrint(WebDriver driver, HashMap<String, String> dataMap) {
+		Boolean isPrintLoaded = false;
+		performPrerequisites(driver, dataMap);
+		webEmailPrintPage.clickPrintBtn();
+		isPrintLoaded = webEmailPrintPage.isPrintDirectionVisible();
+		outputMap.put("PRINT_STATUS", String.valueOf(isPrintLoaded));
+		webEmailPrintPage.clickReturnToMapBtn();
+
+		return outputMap;
+	}
+
 }

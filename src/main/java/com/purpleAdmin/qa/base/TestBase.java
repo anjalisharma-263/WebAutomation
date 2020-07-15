@@ -61,7 +61,7 @@ public class TestBase {
 				"Web Automation", Platform.ANY.name());
 	}
 
-	public static void initialization(String browserName, String Campus) {
+	public static void initialization(String browserName) {
 		if (browserName.equals("Chrome")) {
 			//System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/chromedrivernew");  // For Mac
 			System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/browserSetup/Win/chromedriver.exe"); // For Window 64 bit

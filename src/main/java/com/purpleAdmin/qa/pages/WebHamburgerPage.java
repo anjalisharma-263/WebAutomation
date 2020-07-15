@@ -1,7 +1,11 @@
 package com.purpleAdmin.qa.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,7 +35,7 @@ public class WebHamburgerPage extends TestBase {
 	WebElement PPolicyCrossIcon;
 
 	@FindBy(xpath = "(//p//strong)[37]")
-	public WebElement endOfPPolicy;
+	WebElement endOfPPolicy;
 
 	@FindBy(xpath = "//span[contains(text(),' FAQs')]")
 	WebElement fAQs;
@@ -46,8 +50,7 @@ public class WebHamburgerPage extends TestBase {
 	WebElement EULACrossIcon;
 
 	@FindBy(xpath = "(//p//strong)[16]")
-	public WebElement endOfEULA;
-
+	WebElement endOfEULA;
 
 	@FindBy(xpath = "//span[contains(text(), 'LJ PRIVACY AND SECURITY POLICY')]")
 	WebElement privacyPolicyText;
@@ -71,10 +74,8 @@ public class WebHamburgerPage extends TestBase {
 	public WebElement SkipTutImg4;
 
 	@FindBy(xpath = "//span[contains(text(),'Submit Feedback')]")
-	public WebElement submitFeedback;
-
-
-	Boolean blnFlag = false;
+	WebElement submitFeedback;
+	Boolean  isAppOverViewForwardIconDispalyed = false;
 
 	//Initializing the Page objects
 	public WebHamburgerPage(){
@@ -112,19 +113,31 @@ public class WebHamburgerPage extends TestBase {
 	}
 
 	public void clickPrivacyPolicy(){
-		if(TestUtil.waitForElementPresence(privacyPolicy, driver)){
-			privacyPolicy.click();
+		try {
+			Thread.sleep(5000);
+			if(TestUtil.waitForElementPresence(privacyPolicy, driver)){
+				privacyPolicy.click();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	public Boolean isPrivacyPolicyLoaded(){
+		Boolean blnFlag = false;
 		if(TestUtil.waitForElementPresence(privacyPolicyText, driver)){
 			blnFlag = true;
 		}
 		return blnFlag;
 	}
 
+	public void scrolldownPrivacyPolicy(){
+		Boolean blnFlag = false;
+		TestUtil.scrollByVisibleElement(endOfPPolicy);
+	}
+
 	public Boolean clickClosePPolicy(){
+		Boolean blnFlag = false;
 		if(TestUtil.waitForElementPresence(PPolicyCrossIcon, driver)){
 			PPolicyCrossIcon.click();
 			blnFlag = true;
@@ -136,16 +149,20 @@ public class WebHamburgerPage extends TestBase {
 	public void clickEULAFromHamburger(){
 		try {
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			if(TestUtil.waitForElementPresence(clickEULAFromHamburger, driver)){
+				clickEULAFromHamburger.click();
+			}
+		}catch (Exception e) {
 			e.printStackTrace();
-		}
-		if(TestUtil.waitForElementPresence(clickEULAFromHamburger, driver)){
-			clickEULAFromHamburger.click();
 		}
 	}
 
+	public void scrolldownEULA(){
+		TestUtil.scrollByVisibleElement(endOfEULA);
+	}
+
 	public Boolean clickCloseEULAIcon(){
+		Boolean blnFlag = false;
 		if(TestUtil.waitForElementPresence(EULACrossIcon, driver)){
 			EULACrossIcon.click();
 			blnFlag = true;
@@ -154,6 +171,7 @@ public class WebHamburgerPage extends TestBase {
 	}
 
 	public Boolean isEULALoaded(){
+		Boolean blnFlag = false;
 		if(TestUtil.waitForElementPresence(EULAText, driver)){
 			blnFlag = true;
 		}
@@ -164,6 +182,59 @@ public class WebHamburgerPage extends TestBase {
 		if(TestUtil.waitForElementPresence(appOverview, driver)){
 			appOverview.click();
 		}
+	}
+
+	public Boolean isAppOverviewForwardIconPresent(){
+		for(int i=0; i<3;i++){
+			if(TestUtil.waitForElementPresence(SkipTutForwardIcon, driver)){
+				isAppOverViewForwardIconDispalyed = true;
+				SkipTutForwardIcon.click();
+			}
+			else{
+				System.out.println("Forward icon is not present");
+			}
+		}
+		return isAppOverViewForwardIconDispalyed;
+
+	}
+	public Boolean isAppOverviewImagePresent(){
+		Boolean isAppOverViewImagesDispalyed = false;
+		for(int j=0; j<3;j++){
+			if(TestUtil.waitForElementPresence(SkipTutBackwardIcon, driver)){
+				SkipTutBackwardIcon.click();
+			}
+		} 
+		if(isAppOverViewForwardIconDispalyed){
+			isAppOverViewImagesDispalyed =	AppOverviewListaWebElement(SkipTutImg1, SkipTutImg2, SkipTutImg3, SkipTutImg4, SkipTutForwardIcon, driver);
+		}
+		else{
+			System.out.println("Forward icon is not present");
+		}
+		return isAppOverViewImagesDispalyed;
+	}
+
+	public boolean AppOverviewListaWebElement(WebElement img1,WebElement img2,WebElement img3,WebElement img4, WebElement forwardIcon,WebDriver driver){
+		Boolean blnFlag = false;
+		int count = 0;
+		List<WebElement> imgList = new ArrayList<WebElement>();
+		imgList.add(SkipTutImg1);
+		imgList.add(SkipTutImg2);
+		imgList.add(SkipTutImg3);
+		imgList.add(SkipTutImg4);
+		for(WebElement img:imgList){
+			if(TestUtil.waitForElementPresence(img, driver)){
+				count++;
+			}
+			SkipTutForwardIcon.click();
+		}
+		if(count<3){
+			System.out.println("All Skip tutorial images is not present");
+		}
+		else{
+			System.out.println("All Skip tutorial images are present");
+			blnFlag = true;
+		}
+		return blnFlag;
 	}
 
 	public void clickSubmitFeedback(){
@@ -177,6 +248,4 @@ public class WebHamburgerPage extends TestBase {
 			fAQs.click();
 		}
 	}
-
-
 }

@@ -2,8 +2,6 @@ package com.purpleAdmin.qa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,16 +22,16 @@ public class WebLoginPage extends TestBase {
 	WebElement agreeBtn;
 
 	@FindBy(xpath = "//a[contains(text(),'SKIP TUTORIAL')]")
-	public WebElement skipTutorial;
+	WebElement skipTutorial;
 
 	@FindBy(xpath = "//input[@name ='ion-input-0']")
-	public WebElement startingPoint;
+	WebElement startingPoint;
 
 	@FindBy(xpath = "//input[@name ='ion-input-1']")
-	public WebElement destinationPoint;
+	WebElement destinationPoint;
 
 	@FindBy(xpath = "//ion-col[@class='md hydrated']//img[@class='logo']")
-	public WebElement companyLogo;
+	WebElement companyLogo;
 
 	// Initializing the Page objects
 	public WebLoginPage() {
@@ -53,8 +51,7 @@ public class WebLoginPage extends TestBase {
 				Thread.sleep(15000);
 				JavascriptExecutor executor = (JavascriptExecutor) driver;
 				executor.executeScript("arguments[0].click();", eULAchkBox);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
@@ -107,5 +104,9 @@ public class WebLoginPage extends TestBase {
 			blnFlag = true;
 		}
 		return blnFlag;
+	}
+
+	public Boolean isTextCleared() {
+		return TestUtil.compareText(startingPoint, "");
 	}
 }

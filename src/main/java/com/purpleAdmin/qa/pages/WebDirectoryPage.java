@@ -14,10 +14,10 @@ import com.purpleAdmin.qa.util.TestUtil;
 
 public class WebDirectoryPage extends TestBase {
 	@FindBy(xpath = "//input[@name ='ion-input-0']")
-	public WebElement startingPoint;
+	WebElement startingPoint;
 
 	@FindBy(xpath = "//input[@name ='ion-input-1']")
-	public WebElement destinationPoint;
+	WebElement destinationPoint;
 
 	@FindBy(xpath = "(//span[@class='iconExpanderBg'])[1]")
 	WebElement expandIcon;
@@ -45,7 +45,7 @@ public class WebDirectoryPage extends TestBase {
 
 	@FindBy(xpath = "//span[@class='indexColumn']")
 	WebElement firstResultAfterDirectoryInternalSearch;
-	
+
 	@FindBy(tagName = "ion-icon")
 	WebElement directoryBackArrowTag;
 
@@ -185,8 +185,7 @@ public class WebDirectoryPage extends TestBase {
 		}
 
 	}
-	
-	
+
 	public void clickOnDirectoryBackButton(String browserName) {
 		if (browserName.equals("Chrome")) {
 			if (TestUtil.waitForElementPresence(directoryBackArrowTag, driver)) {
@@ -195,22 +194,31 @@ public class WebDirectoryPage extends TestBase {
 				;
 			}
 		}
-//		if (browserName.equals("FF") || browserName.equals("Edge") || browserName.equals("IE")) {
-//			try {
-//				Thread.sleep(15000);
-//				JavascriptExecutor executor = (JavascriptExecutor) driver;
-//				executor.executeScript("arguments[0].click();", eULAchkBox);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//
-//		}
-//		if (browserName.equals("Safari")) {
-//			if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
-//				eULAchkBox.click();
-//			}
-//		}
+		// if (browserName.equals("FF") || browserName.equals("Edge") ||
+		// browserName.equals("IE")) {
+		// try {
+		// Thread.sleep(15000);
+		// JavascriptExecutor executor = (JavascriptExecutor) driver;
+		// executor.executeScript("arguments[0].click();", eULAchkBox);
+		// } catch (InterruptedException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		//
+		// }
+		// if (browserName.equals("Safari")) {
+		// if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
+		// eULAchkBox.click();
+		// }
+		// }
+	}
+
+	public void clearStartingPointText() {
+		TestUtil.clearData(startingPoint);
+	}
+
+	public void clearDestinationPointText() {
+		TestUtil.clearData(destinationPoint);
 	}
 
 }
