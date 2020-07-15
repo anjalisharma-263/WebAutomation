@@ -68,46 +68,46 @@ public class WebHamburgerPageTestCases extends TestBase {
 	}
 
 
-//	@Test(priority = 3, enabled = true,dataProvider = "getData")
-//	public void validateClearRouteBtn(HashMap<String, String> dataMap){
-//		initialization(dataMap.get("BROWSER_NAME"));
-//		extentTest = parent.createNode("Validating Clear Route Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-//		WebBL wb = new WebBL();
-//		outputMap = wb.performClearRoute(driver, dataMap);
-//		wb.validateResults(extentTest, outputMap);
-//	}
-//
-//	@Test(priority = 4, enabled = true,dataProvider = "getData")
-//	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
-//		
-//		try {
-//			initialization(dataMap.get("BROWSER_NAME"));
-//			extentTest = parent.createNode("Validating App Overview Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-//			WebBL wb = new WebBL();
-//			outputMap = wb.performAppOverview(driver, dataMap);
-//			wb.validateResults(extentTest, outputMap);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	@Test(priority = 5, enabled = true,dataProvider = "getData")
-//	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
-//		initialization(dataMap.get("BROWSER_NAME"));
-//		extentTest = parent.createNode("Validating Privacy Policy Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-//		WebBL wb = new WebBL();
-//		outputMap = wb.performPrivacyPolicyBtn(driver, dataMap);
-//		wb.validateResults(extentTest, outputMap);
-//	}
-//
-//	@Test(priority = 6, enabled = true,dataProvider = "getData")
-//	public void validateEULABtn(HashMap<String, String> dataMap){
-//		initialization(dataMap.get("BROWSER_NAME"));
-//		extentTest = parent.createNode("Validating EULA Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-//		WebBL wb = new WebBL();
-//		outputMap = wb.performEULA(driver, dataMap);
-//		wb.validateResults(extentTest, outputMap);
-//	}
+	@Test(priority = 3, enabled = true,dataProvider = "getData")
+	public void validateClearRouteBtn(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Clear Route Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+		WebBL wb = new WebBL();
+		outputMap = wb.performClearRoute(driver, dataMap);
+		wb.validateResults(extentTest, outputMap);
+	}
+
+	@Test(priority = 4, enabled = true,dataProvider = "getData")
+	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
+		
+		try {
+			initialization(dataMap.get("BROWSER_NAME"));
+			extentTest = parent.createNode("Validating App Overview Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+			WebBL wb = new WebBL();
+			outputMap = wb.performAppOverview(driver, dataMap);
+			wb.validateResults(extentTest, outputMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test(priority = 5, enabled = true,dataProvider = "getData")
+	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Privacy Policy Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+		WebBL wb = new WebBL();
+		outputMap = wb.performPrivacyPolicyBtn(driver, dataMap);
+		wb.validateResults(extentTest, outputMap);
+	}
+
+	@Test(priority = 6, enabled = true,dataProvider = "getData")
+	public void validateEULABtn(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating EULA Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+		WebBL wb = new WebBL();
+		outputMap = wb.performEULA(driver, dataMap);
+		wb.validateResults(extentTest, outputMap);
+	}
 	
 	@AfterMethod
 	public void tearDown() {
