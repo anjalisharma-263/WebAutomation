@@ -78,7 +78,7 @@ public class WebEmailPrintPage extends TestBase{
 		Boolean blnFlag = false;
 		String currentPageURL = "";
 		currentPageURL = driver.getCurrentUrl();
-		if(currentPageURL.contains("Printable")){
+		if(currentPageURL.contains("printable")){
 			blnFlag = true;
 		}
 		return blnFlag;

@@ -1,59 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="45210" started-at="2020-07-15T13:59:33Z" finished-at="2020-07-15T14:00:18Z">
+  <suite name="Default suite" duration-ms="38944" started-at="2020-07-15T14:13:10Z" finished-at="2020-07-15T14:13:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="45210" started-at="2020-07-15T13:59:33Z" finished-at="2020-07-15T14:00:18Z">
-      <class name="com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases">
-        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="setExtentReport" is-config="true" duration-ms="296" started-at="2020-07-15T13:59:32Z" finished-at="2020-07-15T13:59:33Z">
+    <test name="Default test" duration-ms="38944" started-at="2020-07-15T14:13:10Z" finished-at="2020-07-15T14:13:49Z">
+      <class name="com.purpleAdmin.qa.testcases.WebEmailPrintTestCases">
+        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@4f063c0a]" name="setExtentReport" is-config="true" duration-ms="423" started-at="2020-07-15T14:13:10Z" finished-at="2020-07-15T14:13:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtentReport -->
-        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="createTest" is-config="true" duration-ms="8" started-at="2020-07-15T13:59:33Z" finished-at="2020-07-15T13:59:33Z">
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@4f063c0a]" name="createTest" is-config="true" duration-ms="12" started-at="2020-07-15T14:13:10Z" finished-at="2020-07-15T14:13:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTest -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="setUp" is-config="true" duration-ms="1" started-at="2020-07-15T13:59:33Z" finished-at="2020-07-15T13:59:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateSubmitFeedbackBtn(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="validateSubmitFeedbackBtn" duration-ms="21594" started-at="2020-07-15T13:59:33Z" data-provider="getData" finished-at="2020-07-15T13:59:55Z">
+        <test-method status="PASS" signature="validatePrintBtn(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@4f063c0a]" name="validatePrintBtn" duration-ms="36056" started-at="2020-07-15T14:13:11Z" data-provider="getData" finished-at="2020-07-15T14:13:47Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=Albany Med RouteFinder, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=18, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateSubmitFeedbackBtn, ToDirectoryMenu=}]]>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=Emergency Department, DESTINATION_POINT=The Massry Family Children's Emergency Center, FromSubMenu1=, SNO=16, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validatePrintBtn, ToDirectoryMenu=}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateSubmitFeedbackBtn -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="tearDown" is-config="true" duration-ms="1696" started-at="2020-07-15T13:59:55Z" finished-at="2020-07-15T13:59:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="validateFAQsBtn(java.util.HashMap)[pri:2, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="validateFAQsBtn" duration-ms="20463" started-at="2020-07-15T13:59:56Z" data-provider="getData" finished-at="2020-07-15T14:00:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=Albany Med RouteFinder, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=, FromSubMenu1=, SNO=19, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateFAQsBtn, ToDirectoryMenu=}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateFAQsBtn -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T13:59:56Z" finished-at="2020-07-15T13:59:56Z">
+        </test-method> <!-- validatePrintBtn -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@4f063c0a]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-15T14:13:11Z" finished-at="2020-07-15T14:13:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases@614ddd49]" name="tearDown" is-config="true" duration-ms="966" started-at="2020-07-15T14:00:17Z" finished-at="2020-07-15T14:00:18Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebEmailPrintTestCases@4f063c0a]" name="tearDown" is-config="true" duration-ms="2299" started-at="2020-07-15T14:13:47Z" finished-at="2020-07-15T14:13:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases -->
+      </class> <!-- com.purpleAdmin.qa.testcases.WebEmailPrintTestCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
