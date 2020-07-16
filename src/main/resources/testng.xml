@@ -8,6 +8,7 @@
 		<classes>
 			<class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases"></class>
 			<class name="com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases"></class>
+			<class name="com.purpleAdmin.qa.testcases.WebEmailPrintTestCases"></class>
 		</classes>
 	</test>
 </suite>
