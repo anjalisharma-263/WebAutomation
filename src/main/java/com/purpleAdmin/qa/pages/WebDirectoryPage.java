@@ -49,6 +49,12 @@ public class WebDirectoryPage extends TestBase {
 	@FindBy(tagName = "ion-icon")
 	WebElement directoryBackArrowTag;
 
+	@FindBy(xpath = "//button[@class='backMenu']//ion-icon[@class='md hydrated']")
+	WebElement directoryBackArrowIcon;
+
+	@FindBy(xpath = "//button[@class='customBackButton']//ion-icon[@name='close']")
+	WebElement directoryCrossIcon;
+
 	@FindBy(xpath = "//div[@class ='checkboxTerms']//ion-checkbox")
 	WebElement eULAchkBox;
 
@@ -194,23 +200,48 @@ public class WebDirectoryPage extends TestBase {
 				;
 			}
 		}
-		// if (browserName.equals("FF") || browserName.equals("Edge") ||
-		// browserName.equals("IE")) {
-		// try {
-		// Thread.sleep(15000);
-		// JavascriptExecutor executor = (JavascriptExecutor) driver;
-		// executor.executeScript("arguments[0].click();", eULAchkBox);
-		// } catch (InterruptedException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		//
-		// }
-		// if (browserName.equals("Safari")) {
-		// if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
-		// eULAchkBox.click();
-		// }
-		// }
+		if (browserName.equals("FF") || browserName.equals("Edge") || browserName.equals("IE")) {
+			try {
+				Thread.sleep(15000);
+				JavascriptExecutor executor = (JavascriptExecutor) driver;
+				executor.executeScript("arguments[0].click();", directoryBackArrowIcon);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		if (browserName.equals("Safari")) {
+			if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
+				eULAchkBox.click();
+			}
+		}
+	}
+
+	public void clickOnDirectoryCrossButton(String browserName) {
+		if (browserName.equals("Chrome")) {
+			if (TestUtil.waitForElementPresence(directoryBackArrowTag, driver)) {
+				WebElement shadowRoot1 = TestUtil.expandRootElement(directoryBackArrowTag);
+				shadowRoot1.findElement(By.cssSelector("button.backMenu")).click();
+				;
+			}
+		}
+		if (browserName.equals("FF") || browserName.equals("Edge") || browserName.equals("IE")) {
+			try {
+				Thread.sleep(15000);
+				JavascriptExecutor executor = (JavascriptExecutor) driver;
+				executor.executeScript("arguments[0].click();", directoryCrossIcon);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		if (browserName.equals("Safari")) {
+			if (TestUtil.waitForElementPresence(eULAchkBox, driver)) {
+				eULAchkBox.click();
+			}
+		}
 	}
 
 	public void clearStartingPointText() {
@@ -219,6 +250,21 @@ public class WebDirectoryPage extends TestBase {
 
 	public void clearDestinationPointText() {
 		TestUtil.clearData(destinationPoint);
+	}
+
+	public Boolean isGoogleSearchEnable() {
+		Boolean blnFlag = false;
+		List<WebElement> googleResultList = driver
+				.findElements(By.xpath("//div[@class ='googlesearchAtoComplete']//div//div//ion-row"));
+		for (WebElement element : googleResultList) {
+			System.out.println(element.getText());
+		}
+		if (googleResultList.size() >= 1) {
+			blnFlag = true;
+		} else {
+			System.out.println("Google search is not working");
+		}
+		return blnFlag;
 	}
 
 }

@@ -37,6 +37,7 @@ public class WebBL {
 	WebMapPage mapPage = new WebMapPage();
 	WebHamburgerPage webHamburgerPage = new WebHamburgerPage();
 	WebEmailPrintPage webEmailPrintPage = new WebEmailPrintPage();
+	TestUtil testUtil = new TestUtil();
 	Boolean isMapDisplayed = false;
 	Boolean isBlueDotDisplayed = false;
 	Boolean isNavigationStepsDisplayed = false;
@@ -61,8 +62,11 @@ public class WebBL {
 
 	public HashMap<String, String> performDirectoryBackButton(WebDriver driver, HashMap<String, String> dataMap) {
 		performPrerequisitesDirectoryBackButton(driver, dataMap);
-		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
-		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
+		return outputMap;
+	}
+
+	public HashMap<String, String> performDirectoryCrossButton(WebDriver driver, HashMap<String, String> dataMap) {
+		performPrerequisitesDirectoryCrossButton(driver, dataMap);
 		return outputMap;
 	}
 
@@ -394,6 +398,7 @@ public class WebBL {
 			// dirPage.selectParkingFromMenu();
 			dirPage.ExpandIconPoint();
 			dirPage.clickMapIt();
+			testUtil.CompareScreenshotElement();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -426,6 +431,22 @@ public class WebBL {
 			loginPage.clickStartingPoint();
 			dirPage.clickOnDirectoryMenuTo(dataMap.get("ToDirectoryMenu"));
 			dirPage.clickOnDirectoryBackButton(dataMap.get("BROWSER_NAME"));
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public void performPrerequisitesDirectoryCrossButton(WebDriver driver, HashMap<String, String> dataMap) {
+		try {
+			System.out.println(dataMap);
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap.get("URL"));
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			loginPage.clickStartingPoint();
+			dirPage.clickOnDirectoryMenuTo(dataMap.get("ToDirectoryMenu"));
+			dirPage.clickOnDirectoryCrossButton(dataMap.get("BROWSER_NAME"));
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -484,6 +505,8 @@ public class WebBL {
 			Thread.sleep(5000);
 			dirPage.ExpandIconPoint();
 			dirPage.clickMapIt();
+			// testUtil.takeScreenshotElement();
+			testUtil.CompareScreenshotElement();
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -568,28 +591,28 @@ public class WebBL {
 		return outputMap;
 	}
 
-	public boolean AppOverviewListaWebElement(WebElement img1, WebElement img2, WebElement img3, WebElement img4,
-			WebElement forwardIcon, WebDriver driver) {
-		int count = 0;
-		List<WebElement> imgList = new ArrayList<WebElement>();
-		imgList.add(webHamburgerPage.SkipTutImg1);
-		imgList.add(webHamburgerPage.SkipTutImg2);
-		imgList.add(webHamburgerPage.SkipTutImg3);
-		imgList.add(webHamburgerPage.SkipTutImg4);
-		for (WebElement img : imgList) {
-			if (TestUtil.waitForElementPresence(img, driver)) {
-				count++;
-			}
-			webHamburgerPage.SkipTutForwardIcon.click();
-		}
-		if (count < 3) {
-			System.out.println("All Skip tutorial images is not present");
-		} else {
-			System.out.println("All Skip tutorial images are present");
-			blnFlag = true;
-		}
-		return blnFlag;
-	}
+//	public boolean AppOverviewListaWebElement(WebElement img1, WebElement img2, WebElement img3, WebElement img4,
+//			WebElement forwardIcon, WebDriver driver) {
+//		int count = 0;
+//		List<WebElement> imgList = new ArrayList<WebElement>();
+//		imgList.add(webHamburgerPage.SkipTutImg1);
+//		imgList.add(webHamburgerPage.SkipTutImg2);
+//		imgList.add(webHamburgerPage.SkipTutImg3);
+//		imgList.add(webHamburgerPage.SkipTutImg4);
+//		for (WebElement img : imgList) {
+//			if (TestUtil.waitForElementPresence(img, driver)) {
+//				count++;
+//			}
+//			webHamburgerPage.SkipTutForwardIcon.click();
+//		}
+//		if (count < 3) {
+//			System.out.println("All Skip tutorial images is not present");
+//		} else {
+//			System.out.println("All Skip tutorial images are present");
+//			blnFlag = true;
+//		}
+//		return blnFlag;
+//	}
 
 	public HashMap<String, String> performSubmitFeedback(WebDriver driver, HashMap<String, String> dataMap) {
 		String actualPageTitle = "";
@@ -680,6 +703,104 @@ public class WebBL {
 		outputMap.put("PRINT_STATUS", String.valueOf(isPrintLoaded));
 		webEmailPrintPage.clickReturnToMapBtn();
 
+		return outputMap;
+	}
+
+	public HashMap<String, String> performEventCalendar(WebDriver driver, HashMap<String, String> dataMap) {
+		String actualPageTitle = "";
+		String expectedPageTitle = dataMap.get("EXPECTED_TITLE");
+		Boolean isEventCalendarDispalyed = false;
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+			webHamburgerPage.clickEventCaledar();
+			actualPageTitle = driver.getTitle();
+			System.out.println(actualPageTitle);
+			System.out.println(expectedPageTitle);
+			if (actualPageTitle.equals(expectedPageTitle)) {
+				System.out.println("Event Calendar link is functional");
+				isEventCalendarDispalyed = true;
+			} else {
+				System.out.println("Event Calendar link is not functional");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outputMap.put("EVENT_CALANDER_DISPLAYED_STATUS", String.valueOf(isEventCalendarDispalyed));
+		return outputMap;
+	}
+
+	public HashMap<String, String> performSendFeedback(WebDriver driver, HashMap<String, String> dataMap) {
+		String actualPageTitle = "";
+		String expectedPageTitle = dataMap.get("EXPECTED_TITLE");
+		Boolean isSendFeedbackdispalyed = false;
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+			webHamburgerPage.clickSendFeedback();
+			actualPageTitle = driver.getTitle();
+			System.out.println(actualPageTitle);
+			System.out.println(expectedPageTitle);
+			if (actualPageTitle.equals(expectedPageTitle)) {
+				System.out.println("Send Feedback link is functional");
+				isSendFeedbackdispalyed = true;
+			} else {
+				System.out.println("Send Feedback link is not functional");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outputMap.put("SEND_FEEDBACK_DISPLAYED_STATUS", String.valueOf(isSendFeedbackdispalyed));
+		return outputMap;
+	}
+
+	public HashMap<String, String> performDownloadMobileApp(WebDriver driver, HashMap<String, String> dataMap) {
+		String actualPageTitle = "";
+		String expectedPageTitle = dataMap.get("EXPECTED_TITLE");
+		Boolean isDownloadMobileAppDisplayed = false;
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			webHamburgerPage.clickHamburger(dataMap.get("BROWSER_NAME"));
+			webHamburgerPage.clickSendFeedback();
+			actualPageTitle = driver.getTitle();
+			System.out.println(actualPageTitle);
+			System.out.println(expectedPageTitle);
+			if (actualPageTitle.equals(expectedPageTitle)) {
+				System.out.println("Download Mobile App link is functional");
+				isDownloadMobileAppDisplayed = true;
+			} else {
+				System.out.println("Download Mobile App link is not functional");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outputMap.put("DOWNLOAD_MOBILE_APP_STATUS", String.valueOf(isDownloadMobileAppDisplayed));
+		return outputMap;
+	}
+
+	public HashMap<String, String> performGoogleSearch(WebDriver driver, HashMap<String, String> dataMap) {
+		Boolean isGoogleSearchEnable = false;
+		try {
+			driver.get(dataMap.get("URL"));
+			System.out.println(dataMap);
+			Thread.sleep(9000);
+			acceptTermsDisplayed(dataMap);
+			loginPage.clickStartingPoint();
+			dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
+			isGoogleSearchEnable = dirPage.isGoogleSearchEnable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outputMap.put("GOOGLE_SEARCH_STATUS", String.valueOf(isGoogleSearchEnable));
 		return outputMap;
 	}
 

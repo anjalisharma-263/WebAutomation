@@ -1,31 +1,36 @@
 package com.purpleAdmin.qa.base;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
 
-public class Demo {
-	public static Properties prop;
-
+public class Demo
+{
+	static String path = System.getProperty("user.dir");
 	
-	public Demo() {
-		try {
-			prop = new Properties();
-			FileInputStream ip = new FileInputStream("/Users/user/Downloads/PurpleAuto/PurpleAdminPortal/src/main/java/com/purpleAdmin/qa/config/config.properties");
-			prop.load(ip);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println(prop.getProperty("url"));
-	}
-
-	public static void main(String[] args) {
-		
-        Demo d=new Demo();
-
-	}
-
+    public static void main(String args[]) throws IOException
+    {
+     System.setProperty("webdriver.chrome.driver",path + "/src/main/resources/browserSetup/Win/chromedriver.exe");
+     WebDriver driver=new ChromeDriver();
+           
+        driver.get("http://amc.yourdirectroute.com/");
+             WebElement logoImageElement = driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img"));
+             Screenshot logoImageScreenshot = new AShot().takeScreenshot(driver, logoImageElement);
+       ImageIO.write(logoImageScreenshot.getImage(),"png",new File("C://SeleniumPractice/logos/OrangeHRMlogo.png"));
+             File f = new File("C://SeleniumPractice/logos/OrangeHRMlogo.png");
+    if(f.exists())
+  {
+     System.out.println("Image File Captured");
+   }
+  else
+  {
+   System.out.println("Image File NOT exist");
+  }
+          }
 }

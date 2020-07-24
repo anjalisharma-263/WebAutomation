@@ -56,22 +56,31 @@ public class WebHamburgerPage extends TestBase {
 	WebElement privacyPolicyText;
 
 	@FindBy(xpath = "//button[@class = 'forwardIcon']")
-	public WebElement SkipTutForwardIcon;
+	WebElement skipTutForwardIcon;
 
 	@FindBy(xpath = "//button[@class = 'backIcon']")
-	public WebElement SkipTutBackwardIcon;
+	WebElement skipTutBackwardIcon;
 
 	@FindBy(xpath = "(//img[@class = 'webImg'])[1]")
-	public WebElement SkipTutImg1;
+	WebElement skipTutImg1;
 
 	@FindBy(xpath = "(//img[@class = 'webImg'])[2]")
-	public WebElement SkipTutImg2;
+	WebElement skipTutImg2;
 
 	@FindBy(xpath = "(//img[@class = 'webImg'])[3]")
-	public WebElement SkipTutImg3;
+	WebElement skipTutImg3;
 
 	@FindBy(xpath = "(//img[@class = 'webImg'])[4]")
-	public WebElement SkipTutImg4;
+	WebElement skipTutImg4;
+
+	@FindBy(xpath = "//span[contains(text(),' Events Calendar')]")
+	WebElement eventCalendar;
+
+	@FindBy(xpath = "//span[contains(text(),' Download Mobile App')]")
+	WebElement downloadMobileApp;
+	
+	@FindBy(xpath = "//span[contains(text(),' Send Feedback')]")
+	WebElement  sendFeedback;
 
 	@FindBy(xpath = "//span[contains(text(),'Submit Feedback')]")
 	WebElement submitFeedback;
@@ -186,9 +195,9 @@ public class WebHamburgerPage extends TestBase {
 
 	public Boolean isAppOverviewForwardIconPresent(){
 		for(int i=0; i<3;i++){
-			if(TestUtil.waitForElementPresence(SkipTutForwardIcon, driver)){
+			if(TestUtil.waitForElementPresence(skipTutForwardIcon, driver)){
 				isAppOverViewForwardIconDispalyed = true;
-				SkipTutForwardIcon.click();
+				skipTutForwardIcon.click();
 			}
 			else{
 				System.out.println("Forward icon is not present");
@@ -200,12 +209,12 @@ public class WebHamburgerPage extends TestBase {
 	public Boolean isAppOverviewImagePresent(){
 		Boolean isAppOverViewImagesDispalyed = false;
 		for(int j=0; j<3;j++){
-			if(TestUtil.waitForElementPresence(SkipTutBackwardIcon, driver)){
-				SkipTutBackwardIcon.click();
+			if(TestUtil.waitForElementPresence(skipTutBackwardIcon, driver)){
+				skipTutBackwardIcon.click();
 			}
 		} 
 		if(isAppOverViewForwardIconDispalyed){
-			isAppOverViewImagesDispalyed =	AppOverviewListaWebElement(SkipTutImg1, SkipTutImg2, SkipTutImg3, SkipTutImg4, SkipTutForwardIcon, driver);
+			isAppOverViewImagesDispalyed =	AppOverviewListaWebElement(skipTutImg1, skipTutImg2, skipTutImg3, skipTutImg4, skipTutForwardIcon, driver);
 		}
 		else{
 			System.out.println("Forward icon is not present");
@@ -217,15 +226,15 @@ public class WebHamburgerPage extends TestBase {
 		Boolean blnFlag = false;
 		int count = 0;
 		List<WebElement> imgList = new ArrayList<WebElement>();
-		imgList.add(SkipTutImg1);
-		imgList.add(SkipTutImg2);
-		imgList.add(SkipTutImg3);
-		imgList.add(SkipTutImg4);
+		imgList.add(skipTutImg1);
+		imgList.add(skipTutImg2);
+		imgList.add(skipTutImg3);
+		imgList.add(skipTutImg4);
 		for(WebElement img:imgList){
 			if(TestUtil.waitForElementPresence(img, driver)){
 				count++;
 			}
-			SkipTutForwardIcon.click();
+			skipTutForwardIcon.click();
 		}
 		if(count<3){
 			System.out.println("All Skip tutorial images is not present");
@@ -246,6 +255,24 @@ public class WebHamburgerPage extends TestBase {
 	public void clickfAQs(){
 		if(TestUtil.waitForElementPresence(fAQs, driver)){
 			fAQs.click();
+		}
+	}
+	
+	public void clickSendFeedback(){
+		if(TestUtil.waitForElementPresence(sendFeedback, driver)){
+			sendFeedback.click();
+		}
+	}
+	
+	public void clickEventCaledar(){
+		if(TestUtil.waitForElementPresence(eventCalendar, driver)){
+			eventCalendar.click();
+		}
+	}
+	
+	public void clickDownloadMobileApp(){
+		if(TestUtil.waitForElementPresence(eventCalendar, driver)){
+			eventCalendar.click();
 		}
 	}
 }
