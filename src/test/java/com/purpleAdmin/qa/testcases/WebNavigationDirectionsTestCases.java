@@ -221,14 +221,14 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 //		wb.validateResults(extentTest, outputMap);
 //	}
 	
-	@Test(dataProvider = "getData")
-	public void validateGoogleResults(HashMap<String, String> dataMap){
-	initialization(dataMap.get("BROWSER_NAME"));
-	extentTest = parent.createNode("Validating Google Results"+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-	WebBL wb = new WebBL();
-	outputMap = wb.performGoogleSearch(driver, dataMap);
-	wb.validateResults(extentTest, outputMap);
-	}
+//	@Test(dataProvider = "getData")
+//	public void validateGoogleResults(HashMap<String, String> dataMap){
+//	initialization(dataMap.get("BROWSER_NAME"));
+//	extentTest = parent.createNode("Validating Google Results"+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//	WebBL wb = new WebBL();
+//	outputMap = wb.performGoogleSearch(driver, dataMap);
+//	wb.validateResults(extentTest, outputMap);
+//	}
 
 	@AfterMethod
 	public void tearDown() {

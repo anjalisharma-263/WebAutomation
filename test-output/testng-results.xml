@@ -1,36 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="51855" started-at="2020-07-23T15:26:49Z" finished-at="2020-07-23T15:27:41Z">
+  <suite name="Default suite" duration-ms="73229" started-at="2020-07-27T09:20:53Z" finished-at="2020-07-27T09:22:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="51855" started-at="2020-07-23T15:26:49Z" finished-at="2020-07-23T15:27:41Z">
+    <test name="Default test" duration-ms="73229" started-at="2020-07-27T09:20:53Z" finished-at="2020-07-27T09:22:06Z">
       <class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases">
-        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@ff5b51f]" name="setExtentReport" is-config="true" duration-ms="474" started-at="2020-07-23T15:26:49Z" finished-at="2020-07-23T15:26:49Z">
+        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="setExtentReport" is-config="true" duration-ms="349" started-at="2020-07-27T09:20:52Z" finished-at="2020-07-27T09:20:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtentReport -->
-        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@ff5b51f]" name="createTest" is-config="true" duration-ms="20" started-at="2020-07-23T15:26:49Z" finished-at="2020-07-23T15:26:49Z">
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="createTest" is-config="true" duration-ms="15" started-at="2020-07-27T09:20:53Z" finished-at="2020-07-27T09:20:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTest -->
-        <test-method status="PASS" signature="validateOnsiteDirections(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@ff5b51f]" name="validateOnsiteDirections" duration-ms="48840" started-at="2020-07-23T15:26:50Z" data-provider="getData" finished-at="2020-07-23T15:27:39Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-27T09:20:53Z" finished-at="2020-07-27T09:20:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="BlankToField(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="BlankToField" duration-ms="36167" started-at="2020-07-27T09:20:53Z" data-provider="getData" finished-at="2020-07-27T09:21:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=Emergency Department, DESTINATION_POINT=B2 Neuro & Surgical ICU: B230 - B259, FromSubMenu1=, SNO=1, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=validateOnsiteDirections, ToDirectoryMenu=}]]>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=Emergency Department, FromSubMenu1=, SNO=13, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=BlankToField, ToDirectoryMenu=}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateOnsiteDirections -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@ff5b51f]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-23T15:26:50Z" finished-at="2020-07-23T15:26:50Z">
+        </test-method> <!-- BlankToField -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="tearDown" is-config="true" duration-ms="1535" started-at="2020-07-27T09:21:29Z" finished-at="2020-07-27T09:21:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="setUp" is-config="true" duration-ms="0" started-at="2020-07-27T09:21:31Z" finished-at="2020-07-27T09:21:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@ff5b51f]" name="tearDown" is-config="true" duration-ms="2214" started-at="2020-07-23T15:27:39Z" finished-at="2020-07-23T15:27:41Z">
+        <test-method status="PASS" signature="BlankToField(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="BlankToField" duration-ms="33860" started-at="2020-07-27T09:21:31Z" data-provider="getData" finished-at="2020-07-27T09:22:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DirectoryInternalInput1=, ToSubMenu2=, ToSubMenu1=, EXPECTED_TITLE=, EMAIL=, CAMPUS_NAME=AMC, EMAILSENTMESSAGE=, URL=https://amc.yourdirectroute.com/, STARTING_POINT=, DESTINATION_POINT=Emergency Department, FromSubMenu1=, SNO=26, FromSubMenu2=, BROWSER_NAME=Chrome, FromDirectoryMenu=, TEST_CASE_NAME=BlankToField, ToDirectoryMenu=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BlankToField -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases@73846619]" name="tearDown" is-config="true" duration-ms="1012" started-at="2020-07-27T09:22:05Z" finished-at="2020-07-27T09:22:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

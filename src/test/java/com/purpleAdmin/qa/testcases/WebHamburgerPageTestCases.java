@@ -31,21 +31,21 @@ public class WebHamburgerPageTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(dataProvider = "getData")
-	public void validateCompanyLogo(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Company Logo"+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		try {
-			outputMap = wb.verifyCompanyLogo(driver, dataMap);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		wb.validateResults(extentTest, outputMap);
-	}
+//	@Test(dataProvider = "getData")
+//	public void validateCompanyLogo(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Company Logo"+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		try {
+//			outputMap = wb.verifyCompanyLogo(driver, dataMap);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		wb.validateResults(extentTest, outputMap);
+//	}
 
-	@Test(dataProvider = "getData")
+	@Test(priority = 1, enabled = true,dataProvider = "getData")
 	public void validateSubmitFeedbackBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Submit Feedback Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -54,85 +54,85 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(dataProvider = "getData")
-	public void validateFAQsBtn(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating FAQs Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performFAQs(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-
-
-	@Test(dataProvider = "getData")
-	public void validateClearRouteBtn(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Clear Route Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performClearRoute(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-
-	@Test(dataProvider = "getData")
-	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
-		
-		try {
-			initialization(dataMap.get("BROWSER_NAME"));
-			extentTest = parent.createNode("Validating App Overview Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-			WebBL wb = new WebBL();
-			outputMap = wb.performAppOverview(driver, dataMap);
-			wb.validateResults(extentTest, outputMap);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test(dataProvider = "getData")
-	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Privacy Policy Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performPrivacyPolicyBtn(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-
-	@Test(dataProvider = "getData")
-	public void validateEULABtn(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating EULA Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performEULA(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-	
-	@Test(dataProvider = "getData")
-	public void validateSendFeedback(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Send Feedback Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performSendFeedback(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-	
-
-
-	@Test(dataProvider = "getData")
-	public void validateEventCaledar(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Event Calendar Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performEventCalendar(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
-	
-	@Test(dataProvider = "getData")
-	public void validateDownloadMobileApp(HashMap<String, String> dataMap){
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Download Mobile App Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performDownloadMobileApp(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
+//	@Test(dataProvider = "getData")
+//	public void validateFAQsBtn(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating FAQs Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performFAQs(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//
+//
+//	@Test(dataProvider = "getData")
+//	public void validateClearRouteBtn(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Clear Route Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performClearRoute(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//
+//	@Test(dataProvider = "getData")
+//	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
+//		
+//		try {
+//			initialization(dataMap.get("BROWSER_NAME"));
+//			extentTest = parent.createNode("Validating App Overview Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//			WebBL wb = new WebBL();
+//			outputMap = wb.performAppOverview(driver, dataMap);
+//			wb.validateResults(extentTest, outputMap);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	@Test(dataProvider = "getData")
+//	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Privacy Policy Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performPrivacyPolicyBtn(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//
+//	@Test(dataProvider = "getData")
+//	public void validateEULABtn(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating EULA Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performEULA(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//	
+//	@Test(dataProvider = "getData")
+//	public void validateSendFeedback(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Send Feedback Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performSendFeedback(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//	
+//
+//
+//	@Test(dataProvider = "getData")
+//	public void validateEventCaledar(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Event Calendar Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performEventCalendar(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
+//	
+//	@Test(dataProvider = "getData")
+//	public void validateDownloadMobileApp(HashMap<String, String> dataMap){
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Download Mobile App Button Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performDownloadMobileApp(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
 
 	@AfterMethod
 	public void tearDown() {

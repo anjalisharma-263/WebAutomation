@@ -13,7 +13,7 @@ import com.purpleAdmin.qa.util.TestUtil;
 
 public class WebFileUploadTestCase {
 	 static String path = System.getProperty("user.dir");
-	@Test()
+	@Test(priority = 1, enabled = true)
 	public void SendReportToBlob(){
 		try
 		{   
@@ -26,7 +26,7 @@ public class WebFileUploadTestCase {
 			FileInputStream inputStream = new FileInputStream(sourceFile);
 			blob.getProperties().setContentType("text/html");
 			blob.upload(inputStream, sourceFile.length());
-			System.out.print("Successfully uploaded");
+			System.out.print("Extent Report Successfully uploaded ");
 		}catch (Exception e) {
 			e.printStackTrace();
 
