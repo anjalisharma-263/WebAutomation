@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases">
+        <methods>
+          <include name="validateOnsiteDirections" invocation-numbers="3"/>
+          <include name="createTest"/>
+          <include name="setExtentReport"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

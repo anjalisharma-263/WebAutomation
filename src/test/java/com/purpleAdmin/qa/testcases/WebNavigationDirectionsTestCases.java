@@ -40,16 +40,16 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-//	@Test(priority = 1, enabled = true, dataProvider = "getData")
-//	public void validateOnsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
-//		initialization(dataMap.get("BROWSER_NAME"));
-//		extentTest = parent.createNode("Validating Onsite Directions on " + dataMap.get("BROWSER_NAME") + " for "
-//				+ dataMap.get("CAMPUS_NAME"));
-//		WebBL wb = new WebBL();
-//		outputMap = wb.performOnisteDirections(driver, dataMap);
-//		wb.validateResults(extentTest, outputMap);
-//	}
-//
+	@Test(priority = 1, enabled = true, dataProvider = "getData")
+	public void validateOnsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Onsite Directions on " + dataMap.get("BROWSER_NAME") + " for "
+				+ dataMap.get("CAMPUS_NAME"));
+		WebBL wb = new WebBL();
+		outputMap = wb.performOnisteDirections(driver, dataMap);
+		wb.validateResults(extentTest, outputMap);
+	}
+
 //	@Test(priority = 2, enabled = true, dataProvider = "getData")
 //	public void validateOnisteOffisteDirections(HashMap<String, String> dataMap) throws InterruptedException {
 //		initialization(dataMap.get("BROWSER_NAME"));
@@ -60,7 +60,7 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 //		wb.validateResults(extentTest, outputMap);
 //	}
 //
-//	@Test(priority = 2, enabled = true, dataProvider = "getData")
+//	@Test(priority = 3, enabled = true, dataProvider = "getData")
 //	public void validateOffisteOnsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
 //		initialization(dataMap.get("BROWSER_NAME"));
 //		extentTest = parent.createNode("Validating offsite to onsite directions" + dataMap.get("BROWSER_NAME") + " for "
@@ -171,15 +171,15 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 //		wb.validateResults(extentTest, outputMap);
 //	}
 //
-	@Test(priority = 1, enabled = true, dataProvider = "getData")
-	public void BlankToField(HashMap<String, String> dataMap) throws InterruptedException {
-		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Bluedot on SVG Map when To field is blank "
-				+ dataMap.get("BROWSER_NAME") + " for " + dataMap.get("CAMPUS_NAME"));
-		WebBL wb = new WebBL();
-		outputMap = wb.performBlankToField(driver, dataMap);
-		wb.validateResults(extentTest, outputMap);
-	}
+//	@Test(priority = 1, enabled = true, dataProvider = "getData")
+//	public void BlankToField(HashMap<String, String> dataMap) throws InterruptedException {
+//		initialization(dataMap.get("BROWSER_NAME"));
+//		extentTest = parent.createNode("Validating Bluedot on SVG Map when To field is blank "
+//				+ dataMap.get("BROWSER_NAME") + " for " + dataMap.get("CAMPUS_NAME"));
+//		WebBL wb = new WebBL();
+//		outputMap = wb.performBlankToField(driver, dataMap);
+//		wb.validateResults(extentTest, outputMap);
+//	}
 //
 //	@Test(priority = 14, enabled = true, dataProvider = "getData")
 //	public void ValidateDirectionsLoadedOrNotWhenPasteURL(HashMap<String, String> dataMap) throws InterruptedException {

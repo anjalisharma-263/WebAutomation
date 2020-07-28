@@ -83,6 +83,7 @@ public class WebBL {
 		isDirectionContentClickable = dirPage.isDirectionContentClickable();
 		isMapDisplayed = mapPage.verifyOnsiteMapPresence();
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
+		mapPage.getAttributeValue();
 		outputMap.put("NAVIGATION_STATUS", String.valueOf(isNavigationStepsDisplayed));
 		outputMap.put("NAVIGATION_STEPS_CLICKABLE_STATUS", String.valueOf(isNavigationStepsDisplayed));
 		outputMap.put("MAP_STATUS", String.valueOf(isMapDisplayed));

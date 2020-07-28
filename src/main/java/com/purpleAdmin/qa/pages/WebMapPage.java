@@ -151,4 +151,10 @@ public class WebMapPage extends TestBase {
 		}
 		return blnFlag;
 	}
+	
+	public void getAttributeValue(){
+		WebElement element =driver.findElement(By.xpath("//div[@id ='FloorBasement-map']//div[@class = 'leaflet-pane leaflet-rotate-pane']"));
+		String att =element.getAttribute("style");
+		System.out.print(att);
+		}
 }
