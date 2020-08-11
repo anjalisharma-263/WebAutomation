@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.purpleAdmin.qa.base.TestBase;
 import com.purpleAdmin.qa.util.TestUtil;
 
-public class WebLoginPage extends TestBase {
+public class WebHomePage extends TestBase {
 	// Page Factory - OR:
 
 	@FindBy(tagName = "ion-checkbox")
@@ -34,7 +34,7 @@ public class WebLoginPage extends TestBase {
 	WebElement companyLogo;
 
 	// Initializing the Page objects
-	public WebLoginPage() {
+	public WebHomePage() {
 		PageFactory.initElements(driver, this);
 	}
 

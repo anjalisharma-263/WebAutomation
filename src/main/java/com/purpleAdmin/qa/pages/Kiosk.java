@@ -13,11 +13,19 @@ public class Kiosk extends TestBase {
 	
 	@FindBy(xpath = "//button[contains(text(),'Touch Here To Begin')]")
 	WebElement BeginBtn;
+	@FindBy(xpath = "//button[@class='closeVideoIntro']")
+	WebElement SkipIntro;
+	
 	@FindBy(xpath = "//h3[contains(text(),'Main Menu')]")
 	WebElement MainMenu;
-	@FindBy(xpath = "//*[@id='Art']")
+	
+//	@FindBy(xpath = "//*[@id='Art']")
+//	WebElement mapFloor;
+	
+	@FindBy(xpath = "//*[name()='div' and contains(@class,'floorName')]")
 	WebElement mapFloor;
-	@FindBy(xpath = "//*[@class='ag-body-container']//div[@class='ag-row ag-row-no-focus ag-row-no-animation ag-row-level-0 ag-row-even'][1]")
+	
+	@FindBy(xpath = " 	")
 	WebElement directoryWithSplash;
 	@FindBy(xpath = "//*[@class = 'main-nav row'][1]")
 	WebElement directoryWithoutSplash;
@@ -43,6 +51,15 @@ public class Kiosk extends TestBase {
 		}
 		return title;
 	}
+	
+	public void clickSkipIntro() {
+		System.out.println("-----------------"+SkipIntro);
+		if(TestUtil.waitForElementPresence(SkipIntro,driver)){
+			SkipIntro.click();
+			
+		}
+	}
+	
 	public  Boolean getMapFloor(){
 		Boolean blnFlag = false;
 		blnFlag = TestUtil.waitForElementPresence(mapFloor, driver);

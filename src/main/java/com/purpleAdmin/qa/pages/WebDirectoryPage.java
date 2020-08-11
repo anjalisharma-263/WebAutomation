@@ -57,6 +57,9 @@ public class WebDirectoryPage extends TestBase {
 
 	@FindBy(xpath = "//div[@class ='checkboxTerms']//ion-checkbox")
 	WebElement eULAchkBox;
+	
+	@FindBy(xpath = "(//ion-row[@class ='searchGoogleRow md hydrated']//ion-col//div//a)[1]")
+	WebElement selectOffsiteLocation;
 
 	Boolean blnFlag = false;
 
@@ -265,6 +268,12 @@ public class WebDirectoryPage extends TestBase {
 			System.out.println("Google search is not working");
 		}
 		return blnFlag;
+	}
+	
+	public void selectOffsiteLocation(){
+		if(TestUtil.waitForElementPresence(selectOffsiteLocation, driver)){
+		selectOffsiteLocation.click();
+		}
 	}
 
 }

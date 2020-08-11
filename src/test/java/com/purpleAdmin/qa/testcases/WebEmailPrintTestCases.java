@@ -20,10 +20,10 @@ public class WebEmailPrintTestCases extends TestBase {
 	public static ExtentTest parent;
 	HashMap<String, String> outputMap;
 	WebEmailPrintPage webEmailPrintPage = new WebEmailPrintPage();
-	public WebEmailPrintTestCases(){
+	/*public WebEmailPrintTestCases(){
 		super();
 	}
-
+*/
 	@BeforeTest
 	public void createTest() {
 		parent = extent.createTest("Email & Print  Validation Test");		
@@ -34,27 +34,27 @@ public class WebEmailPrintTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 1, enabled = true, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateEmailBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Email Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Email Functionality on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performEmail(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 2, enabled = true, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validatePrintBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Print Functionality "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Print Functionality on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performPrint(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 	
+
 	@AfterMethod
 	public void tearDown() {
-		extent.flush();
-		driver.quit();
+        driver.close();	
 	}
 }

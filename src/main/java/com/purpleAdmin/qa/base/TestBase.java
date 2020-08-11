@@ -19,6 +19,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 
@@ -148,7 +149,7 @@ public class TestBase {
 		return hashMapObject;
 	}
 
-	@AfterSuite
+	@AfterTest
 	public void tearDown() {
 		extent.flush();
 	}

@@ -9,6 +9,13 @@
 			<class name="com.purpleAdmin.qa.testcases.WebNavigationDirectionsTestCases"></class>
 			<class name="com.purpleAdmin.qa.testcases.WebHamburgerPageTestCases"></class>
 			<class name="com.purpleAdmin.qa.testcases.WebEmailPrintTestCases"></class>
+			<class name="com.purpleAdmin.qa.testcases.WebHomePageTestCase"></class>
+			<class name="com.purpleAdmin.qa.testcases.WebMapPageTestCases"></class>
+		</classes>
+	</test>
+	<test name="File Upload">
+		<classes>
+		
 			<class name="com.purpleAdmin.qa.testcases.WebFileUploadTestCase"></class>
 		</classes>
 	</test>
