@@ -1,36 +1,17 @@
 package businessLogic;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import javax.imageio.ImageIO;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.purpleAdmin.qa.base.TestBase;
-import com.purpleAdmin.qa.pages.Kiosk;
+
 import com.purpleAdmin.qa.pages.WebDirectoryPage;
 import com.purpleAdmin.qa.pages.WebHamburgerPage;
 import com.purpleAdmin.qa.pages.WebHomePage;
 import com.purpleAdmin.qa.pages.WebMapPage;
-import com.purpleAdmin.qa.testcases.WebHomePageTestCase;
 import com.purpleAdmin.qa.pages.WebEmailPrintPage;
 import com.purpleAdmin.qa.util.TestUtil;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
-import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 
 public class WebBL {
 	WebHomePage homePage = new WebHomePage();
@@ -47,8 +28,8 @@ public class WebBL {
 	HashMap<String, String> outputMap = new HashMap<String, String>();
 	ExtentTest extentTest = null;
 	Boolean blnFlag = false;
-	
-	public HashMap<String , String> performOnisteDirections(WebDriver driver, HashMap<String, String> dataMap) {
+
+	public HashMap<String, String> performOnisteDirections(WebDriver driver, HashMap<String, String> dataMap) {
 		Boolean isBlueDotDisplayed = false;
 		Boolean isNavigationStepsDisplayed = false;
 		Boolean isDirectionContentClickable = false;
@@ -64,8 +45,8 @@ public class WebBL {
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
 	}
-	
-	public HashMap<String , String> performOnsiteOffsiteDirections(WebDriver driver, HashMap<String, String> dataMap) {
+
+	public HashMap<String, String> performOnsiteOffsiteDirections(WebDriver driver, HashMap<String, String> dataMap) {
 		Boolean isBlueDotDisplayed = false;
 		Boolean isNavigationStepsDisplayed = false;
 		Boolean isDirectionContentClickable = false;
@@ -83,10 +64,10 @@ public class WebBL {
 		return outputMap;
 	}
 
-	public HashMap<String , String> performOffsiteOnsiteDirections(WebDriver driver, HashMap<String, String> dataMap) {
+	public HashMap<String, String> performOffsiteOnsiteDirections(WebDriver driver, HashMap<String, String> dataMap) {
 		Boolean isBlueDotDisplayed = false;
 		Boolean isNavigationStepsDisplayed = false;
-		Boolean isDirectionContentClickable = false;
+	//	Boolean isDirectionContentClickable = false;
 		Boolean isOffsiteMapDisplayed = false;
 		Boolean isgooglePointsABVisible = false;
 		performPrerequisites(driver, dataMap);
@@ -97,13 +78,14 @@ public class WebBL {
 		isNavigationStepsDisplayed = dirPage.clickViewOnMapForOffiste();
 		isBlueDotDisplayed = mapPage.verifyBlueDotPresence();
 		outputMap.put("DIRECTIONS_AVAILABLE_STATUS", String.valueOf(isNavigationStepsDisplayed));
-		outputMap.put("OUTDOOR_MAP_STATUS", String.valueOf(isOffsiteMapDisplayed));	
+		outputMap.put("OUTDOOR_MAP_STATUS", String.valueOf(isOffsiteMapDisplayed));
 		outputMap.put("GOOGLE_POINTS_STATUS", String.valueOf(isgooglePointsABVisible));
 		outputMap.put("BLUEDOT_STATUS", String.valueOf(isBlueDotDisplayed));
 		return outputMap;
 	}
 
-	public HashMap<String , String> performReverse(WebDriver driver, HashMap<String, String> dataMap) throws InterruptedException {
+	public HashMap<String, String> performReverse(WebDriver driver, HashMap<String, String> dataMap)
+			throws InterruptedException {
 		Boolean isReverseIconEnabled = false;
 		driver.get(dataMap.get("URL"));
 		acceptTermsDisplayed(dataMap);
@@ -118,7 +100,7 @@ public class WebBL {
 		outputMap.put("REVERSE_ICON_WITH_STARTINGPOINT_STATUS", String.valueOf(isReverseIconEnabled));
 		dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
 		dirPage.ExpandIconPoint();
-		dirPage.clickMapIt();	
+		dirPage.clickMapIt();
 		dirPage.clearStartingPointText();
 		dirPage.clearDestinationPointText();
 		isReverseIconEnabled = dirPage.isReverseIconEnabled();
@@ -195,8 +177,6 @@ public class WebBL {
 		return outputMap;
 	}
 
-	
-
 	public HashMap<String, String> performClearRoute(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			Boolean isTextCleared = false;
@@ -263,7 +243,7 @@ public class WebBL {
 	}
 
 	public HashMap<String, String> performMapZoomIn(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
+		try {
 			Boolean isMapZoomedIn, isZoomInClickable = false;
 			String actualZoomValue = "";
 			performPrerequisites(driver, dataMap);
@@ -273,14 +253,14 @@ public class WebBL {
 			System.out.print(isMapZoomedIn);
 			outputMap.put("ZOOM_IN_CLICKED_STATUS", String.valueOf(isZoomInClickable));
 			outputMap.put("IS_MAP_ZOOMED_IN_STATUS", String.valueOf(isMapZoomedIn));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
 
 	public HashMap<String, String> performMapZoomOut(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
+		try {
 			Boolean isMapZoomedOut, isZoomOutClickable = false;
 			String actualZoomValue = "";
 			performPrerequisites(driver, dataMap);
@@ -290,63 +270,63 @@ public class WebBL {
 			System.out.print(isMapZoomedOut);
 			outputMap.put("ZOOM_OUT_CLICKED_STATUS", String.valueOf(isZoomOutClickable));
 			outputMap.put("IS_MAP_ZOOMED_OUT_STATUS", String.valueOf(isMapZoomedOut));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
 
 	public HashMap<String, String> performMapRecenter(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
-			Boolean isMapRecenteredClickable,isMapRecentered = false;
+		try {
+			Boolean isMapRecenteredClickable, isMapRecentered = false;
 			String actualRecenteredValue = "";
 			performPrerequisites(driver, dataMap);
 			mapPage.verifyMapRotateLeft();
 			isMapRecenteredClickable = mapPage.verifyMapRecenter();
 			actualRecenteredValue = mapPage.getRotateAttributeValue();
-			isMapRecentered =actualRecenteredValue.equals(dataMap.get("EXPECTED_TITLE"));
+			isMapRecentered = actualRecenteredValue.equals(dataMap.get("EXPECTED_TITLE"));
 			outputMap.put("MAP_RECENTER_CLICK_STATUS", String.valueOf(isMapRecenteredClickable));
 			outputMap.put("IS_MAP_RECENTERED_STATUS", String.valueOf(isMapRecentered));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
 
 	public HashMap<String, String> performMapRotationLeft(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
+		try {
 			Boolean isRotateLeftBtnClickable, isMapRotatedLeft = false;
 			String actualLeftRotationValue = "";
 			performPrerequisites(driver, dataMap);
 			isRotateLeftBtnClickable = mapPage.verifyMapRotateLeft();
 			actualLeftRotationValue = mapPage.getRotateAttributeValue();
-			isMapRotatedLeft =actualLeftRotationValue.equals(dataMap.get("EXPECTED_TITLE"));
+			isMapRotatedLeft = actualLeftRotationValue.equals(dataMap.get("EXPECTED_TITLE"));
 			outputMap.put("IS_ROTATE_LEFT_BTN_CLICKED_STATUS", String.valueOf(isRotateLeftBtnClickable));
 			outputMap.put("IS_MAP_ROTATED_STATUS", String.valueOf(isMapRotatedLeft));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
 
 	public HashMap<String, String> performMapRotationRight(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
-			Boolean isRotateRightBtnClickable,isMapRotatedRight = false;
+		try {
+			Boolean isRotateRightBtnClickable, isMapRotatedRight = false;
 			String actualRightRotationValue = "";
 			performPrerequisites(driver, dataMap);
 			isRotateRightBtnClickable = mapPage.verifyMapRotateRight();
 			actualRightRotationValue = mapPage.getRotateAttributeValue();
-			isMapRotatedRight =actualRightRotationValue.equals(dataMap.get("EXPECTED_TITLE"));
+			isMapRotatedRight = actualRightRotationValue.equals(dataMap.get("EXPECTED_TITLE"));
 			outputMap.put("IS_ROTATE_RIGHT_BTN_CLICKED_STATUS", String.valueOf(isRotateRightBtnClickable));
 			outputMap.put("IS_MAP_ROTATED_STATUS", String.valueOf(isMapRotatedRight));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
 
 	public HashMap<String, String> performKeyLegends(WebDriver driver, HashMap<String, String> dataMap) {
-		try{
+		try {
 			Boolean isKeyLegendLoaded, isLegendPresent, isKeyLegendClosed = false;
 			performPrerequisites(driver, dataMap);
 			isKeyLegendLoaded = mapPage.verifyKeyLegends();
@@ -356,11 +336,12 @@ public class WebBL {
 			outputMap.put("KEYLEGENDS_CLICKABLE_STATUS", String.valueOf(isKeyLegendLoaded));
 			outputMap.put("KEYLEGENDS_LIST_STATUS", String.valueOf(isLegendPresent));
 			outputMap.put("KEYLEGENDS_CLOSE_STATUS", String.valueOf(isKeyLegendClosed));
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return outputMap;
 	}
+
 	public void acceptTermsDisplayed(HashMap<String, String> dataMap) {
 		String campusName = dataMap.get("CAMPUS_NAME");
 		System.out.println(campusName);
@@ -416,30 +397,31 @@ public class WebBL {
 		}
 	}
 
-//	public void performPrerequisites(WebDriver driver, HashMap<String, String> dataMap) {
-//		try {
-//			System.out.println(dataMap);
-//			driver.get(dataMap.get("URL"));
-//			Thread.sleep(9000);
-//			acceptTermsDisplayed(dataMap);
-//			verifyCompanyLogo(driver, dataMap);
-//			homePage.clickStartingPoint();
-//			dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
-//			Thread.sleep(5000);
-//			dirPage.ExpandIconPoint();
-//			dirPage.clickMapIt();
-//			dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
-//			// dirPage.selectParkingFromMenu();
-//			dirPage.ExpandIconPoint();
-//			dirPage.clickMapIt();
-//			testUtil.CompareScreenshotElement();
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//	}
-	
-	public void performPrerequisites(WebDriver driver, HashMap<String, String> dataMap)  {
-		try{
+	// public void performPrerequisites(WebDriver driver, HashMap<String,
+	// String> dataMap) {
+	// try {
+	// System.out.println(dataMap);
+	// driver.get(dataMap.get("URL"));
+	// Thread.sleep(9000);
+	// acceptTermsDisplayed(dataMap);
+	// verifyCompanyLogo(driver, dataMap);
+	// homePage.clickStartingPoint();
+	// dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
+	// Thread.sleep(5000);
+	// dirPage.ExpandIconPoint();
+	// dirPage.clickMapIt();
+	// dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
+	// // dirPage.selectParkingFromMenu();
+	// dirPage.ExpandIconPoint();
+	// dirPage.clickMapIt();
+	// testUtil.CompareScreenshotElement();
+	// } catch (Exception e) {
+	// System.out.println(e);
+	// }
+	// }
+
+	public void performPrerequisites(WebDriver driver, HashMap<String, String> dataMap) {
+		try {
 			driver.get(dataMap.get("URL"));
 			System.out.println(dataMap);
 			Thread.sleep(5000);
@@ -447,34 +429,31 @@ public class WebBL {
 			homePage.clickStartingPoint();
 			dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
 			selectLocation(dataMap);
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	
-	public void selectLocation(HashMap<String, String> dataMap){
-		try{
-			if(dataMap.get("STARTING_POINT").contains("the Cafe17 ")){
+
+	public void selectLocation(HashMap<String, String> dataMap) {
+		try {
+			if (dataMap.get("STARTING_POINT").contains("the Cafe17 ")) {
 				dirPage.selectOffsiteLocation();
-			}
-			else{
+			} else {
 				dirPage.ExpandIconPoint();
 				dirPage.clickMapIt();
 			}
 			Thread.sleep(1000);
 			dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
-			if(dataMap.get("DESTINATION_POINT").contains("The cafe17 ")){
+			if (dataMap.get("DESTINATION_POINT").contains("The cafe17 ")) {
 				dirPage.selectOffsiteLocation();
-			}
-			else{
+			} else {
 				dirPage.ExpandIconPoint();
 				dirPage.clickMapIt();
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-
 
 	public void performPrerequisitesDirectoryInternalSearch(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
@@ -663,28 +642,29 @@ public class WebBL {
 		return outputMap;
 	}
 
-//	public boolean AppOverviewListaWebElement(WebElement img1, WebElement img2, WebElement img3, WebElement img4,
-//			WebElement forwardIcon, WebDriver driver) {
-//		int count = 0;
-//		List<WebElement> imgList = new ArrayList<WebElement>();
-//		imgList.add(webHamburgerPage.SkipTutImg1);
-//		imgList.add(webHamburgerPage.SkipTutImg2);
-//		imgList.add(webHamburgerPage.SkipTutImg3);
-//		imgList.add(webHamburgerPage.SkipTutImg4);
-//		for (WebElement img : imgList) {
-//			if (TestUtil.waitForElementPresence(img, driver)) {
-//				count++;
-//			}
-//			webHamburgerPage.SkipTutForwardIcon.click();
-//		}
-//		if (count < 3) {
-//			System.out.println("All Skip tutorial images is not present");
-//		} else {
-//			System.out.println("All Skip tutorial images are present");
-//			blnFlag = true;
-//		}
-//		return blnFlag;
-//	}
+	// public boolean AppOverviewListaWebElement(WebElement img1, WebElement
+	// img2, WebElement img3, WebElement img4,
+	// WebElement forwardIcon, WebDriver driver) {
+	// int count = 0;
+	// List<WebElement> imgList = new ArrayList<WebElement>();
+	// imgList.add(webHamburgerPage.SkipTutImg1);
+	// imgList.add(webHamburgerPage.SkipTutImg2);
+	// imgList.add(webHamburgerPage.SkipTutImg3);
+	// imgList.add(webHamburgerPage.SkipTutImg4);
+	// for (WebElement img : imgList) {
+	// if (TestUtil.waitForElementPresence(img, driver)) {
+	// count++;
+	// }
+	// webHamburgerPage.SkipTutForwardIcon.click();
+	// }
+	// if (count < 3) {
+	// System.out.println("All Skip tutorial images is not present");
+	// } else {
+	// System.out.println("All Skip tutorial images are present");
+	// blnFlag = true;
+	// }
+	// return blnFlag;
+	// }
 
 	public HashMap<String, String> performSubmitFeedback(WebDriver driver, HashMap<String, String> dataMap) {
 		String actualPageTitle = "";
@@ -741,7 +721,8 @@ public class WebBL {
 		return outputMap;
 	}
 
-	public HashMap<String, String> verifyCompanyLogo(WebDriver driver, HashMap<String, String> dataMap) throws InterruptedException {
+	public HashMap<String, String> verifyCompanyLogo(WebDriver driver, HashMap<String, String> dataMap)
+			throws InterruptedException {
 		Boolean isCompanyLogoPresent = false;
 		driver.get(dataMap.get("URL"));
 		System.out.println(dataMap);
