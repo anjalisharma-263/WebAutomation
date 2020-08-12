@@ -14,7 +14,7 @@ import businessLogic.KioskBL;
 import businessLogic.KioskDirectoryPageBL;
 
 public class KioskDirectoryPageTestCases extends TestBase {
-	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/KioskData.xls";
+	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
 	public static final String SHEET_NAME = "Kiosk";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;

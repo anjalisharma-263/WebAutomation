@@ -14,8 +14,8 @@ import com.purpleAdmin.qa.pages.WebEmailPrintPage;
 import businessLogic.WebBL;
 
 public class WebEmailPrintTestCases extends TestBase {
-	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/KioskData.xls";
-	public static final String SHEET_NAME = "Web";
+	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
+	public static final String SHEET_NAME = "WebStage";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;
 	HashMap<String, String> outputMap;
@@ -34,7 +34,7 @@ public class WebEmailPrintTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 13, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateEmailBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Email Functionality on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -43,7 +43,7 @@ public class WebEmailPrintTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 14, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validatePrintBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Print Functionality on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -55,6 +55,6 @@ public class WebEmailPrintTestCases extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-        driver.close();	
+        driver.quit();
 	}
 }

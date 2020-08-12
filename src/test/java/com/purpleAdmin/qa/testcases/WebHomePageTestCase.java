@@ -14,8 +14,8 @@ import com.purpleAdmin.qa.base.TestBase;
 import businessLogic.WebBL;
 
 public class WebHomePageTestCase extends  TestBase{
-	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/KioskData.xls";
-	public static final String SHEET_NAME = "Web";
+	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
+	public static final String SHEET_NAME = "WebStage";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;
 	HashMap<String, String> outputMap;
@@ -34,7 +34,7 @@ public class WebHomePageTestCase extends  TestBase{
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 1, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateCompanyLogo(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validate Company Logo Loaded on Home Page in "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -49,7 +49,7 @@ public class WebHomePageTestCase extends  TestBase{
 	
 	@AfterMethod
 	public void tearDown() {
-        driver.close();	
+        driver.quit();
 	}
 	
 

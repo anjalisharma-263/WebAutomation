@@ -10,7 +10,7 @@ import com.purpleAdmin.qa.base.TestBase;
 import businessLogic.KioskBL;
 
 public class ValidateKioskURLTestCases extends TestBase {
-	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/KioskData.xls";
+	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
 	public static final String SHEET_NAME = "Kiosk";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;

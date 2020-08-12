@@ -150,7 +150,7 @@ public class TestBase {
 	}
 
 	@AfterTest
-	public void tearDown() {
+	public void creatReport() {
 		extent.flush();
 	}
 }

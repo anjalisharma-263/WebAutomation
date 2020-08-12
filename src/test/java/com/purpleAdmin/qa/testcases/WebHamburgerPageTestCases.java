@@ -13,8 +13,8 @@ import com.purpleAdmin.qa.pages.WebHamburgerPage;
 import businessLogic.WebBL;
 
 public class WebHamburgerPageTestCases extends TestBase {
-	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/KioskData.xls";
-	public static final String SHEET_NAME = "Web";
+	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
+	public static final String SHEET_NAME = "WebStage";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;
 	HashMap<String, String> outputMap;
@@ -31,7 +31,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 15, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateClearRouteBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Clear Route Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -40,7 +40,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 16, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateEULABtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating EULA Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -49,7 +49,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 17, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
 
 		try {
@@ -63,7 +63,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		}
 	}
 
-	@Test(priority = 18, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Privacy Policy Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -72,7 +72,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 19, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateSubmitFeedbackBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Submit Feedback Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -81,7 +81,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 20, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateFAQsBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating FAQs Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -90,7 +90,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority =21, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateSendFeedback(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Send Feedback Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -99,7 +99,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 22, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateEventCaledar(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Event Calendar Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -108,7 +108,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 23, dataProvider = "getData")
+	@Test(dataProvider = "getData")
 	public void validateDownloadMobileApp(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Download Mobile App Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
