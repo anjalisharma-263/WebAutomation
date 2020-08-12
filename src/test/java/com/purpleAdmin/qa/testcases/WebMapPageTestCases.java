@@ -32,56 +32,56 @@ public class WebMapPageTestCases extends TestBase{
 	public void setUp() {
 		outputMap = new HashMap<String, String>();
 	}
-	@Test(priority = 1,dataProvider = "getData")
-	public void validateMapZoomIn(HashMap<String, String> dataMap     ){
+	@Test(priority = 7,dataProvider = "getData")
+	public void validateMapZoomIn(HashMap<String, String> dataMap){
 		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Map Rotate Left on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Map Rotate Left on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performMapZoomIn(driver, dataMap     );
+		outputMap = wb.performMapZoomIn(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 2,dataProvider = "getData")
-	public void validateMapZoomOut(HashMap<String, String> dataMap     ){
-		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Map Zoom Out on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+	@Test(priority = 8,dataProvider = "getData")
+	public void validateMapZoomOut(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Map Zoom Out on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performMapZoomOut(driver, dataMap     );
+		outputMap = wb.performMapZoomOut(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 3,dataProvider = "getData")
-	public void validateMapRotateLeft(HashMap<String, String> dataMap     ){
-		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Map Rotate Left on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+	@Test(priority = 9,dataProvider = "getData")
+	public void validateMapRotateLeft(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Map Rotate Left on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performMapRotationLeft(driver, dataMap     );
+		outputMap = wb.performMapRotationLeft(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 4,dataProvider = "getData")
-	public void validateMapRotateRight(HashMap<String, String> dataMap     ){
-		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Map Rotate Right on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+	@Test(priority = 10,dataProvider = "getData")
+	public void validateMapRotateRight(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Map Rotate Right on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performMapRotationRight(driver, dataMap     );
+		outputMap = wb.performMapRotationRight(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
-	@Test(priority = 5,dataProvider = "getData")
-	public void validateMapRecenter(HashMap<String, String> dataMap     ){
-		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Map Zoom Recenter on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+	@Test(priority = 11,dataProvider = "getData")
+	public void validateMapRecenter(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Map Zoom Recenter on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performMapRecenter(driver, dataMap     );
+		outputMap = wb.performMapRecenter(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 6,dataProvider = "getData")
-	public void validateKeyLegends(HashMap<String, String> dataMap     ){
-		initialization(dataMap     .get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Key Legends on "+ dataMap     .get("BROWSER_NAME")+ " for " +dataMap     .get("CAMPUS_NAME"));
+	@Test(priority = 12,dataProvider = "getData")
+	public void validateKeyLegends(HashMap<String, String> dataMap){
+		initialization(dataMap.get("BROWSER_NAME"));
+		extentTest = parent.createNode("Validating Key Legends on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
-		outputMap = wb.performKeyLegends(driver, dataMap     );
+		outputMap = wb.performKeyLegends(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 	

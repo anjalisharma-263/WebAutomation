@@ -31,7 +31,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 1,dataProvider = "getData")
+	@Test(priority = 15, dataProvider = "getData")
 	public void validateClearRouteBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Clear Route Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -40,7 +40,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 2,dataProvider = "getData")
+	@Test(priority = 16, dataProvider = "getData")
 	public void validateEULABtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating EULA Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -49,7 +49,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 3,dataProvider = "getData")
+	@Test(priority = 17, dataProvider = "getData")
 	public void validateAppOverviewBtn(HashMap<String, String> dataMap){
 
 		try {
@@ -63,7 +63,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		}
 	}
 
-	@Test(priority = 4,dataProvider = "getData")
+	@Test(priority = 18, dataProvider = "getData")
 	public void validatePrivacyPolicyBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Privacy Policy Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -72,7 +72,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 5,dataProvider = "getData")
+	@Test(priority = 19, dataProvider = "getData")
 	public void validateSubmitFeedbackBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Submit Feedback Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -81,7 +81,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 6,dataProvider = "getData")
+	@Test(priority = 20, dataProvider = "getData")
 	public void validateFAQsBtn(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating FAQs Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -90,7 +90,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority =7, dataProvider = "getData")
+	@Test(priority =21, dataProvider = "getData")
 	public void validateSendFeedback(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Send Feedback Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -99,7 +99,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 8,dataProvider = "getData")
+	@Test(priority = 22, dataProvider = "getData")
 	public void validateEventCaledar(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Event Calendar Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
@@ -108,7 +108,7 @@ public class WebHamburgerPageTestCases extends TestBase {
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 9,dataProvider = "getData")
+	@Test(priority = 23, dataProvider = "getData")
 	public void validateDownloadMobileApp(HashMap<String, String> dataMap){
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Download Mobile App Button Functionality  on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));

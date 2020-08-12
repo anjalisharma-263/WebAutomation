@@ -35,53 +35,54 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 		outputMap = new HashMap<String, String>();
 	}
 
-	@Test(priority = 1, enabled = true, dataProvider = "getData")
+	@Test(priority = 2, enabled = true, dataProvider = "getData")
 	public void validateOnsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Onsite Directions on " + dataMap.get("BROWSER_NAME") + " for "
-				+ dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Onsite Directions on " + dataMap.get("BROWSER_NAME") + " for "+ dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performOnisteDirections(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 2, enabled = true, dataProvider = "getData")
-	public void validateOnisteOffsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
+	@Test(priority = 3, enabled = true, dataProvider = "getData")
+	public void validateOnsiteOffsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating Onsite to Offsite directions" + dataMap.get("BROWSER_NAME") + " for "
-				+ dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Onsite to Offsite directions" + dataMap.get("BROWSER_NAME") + " for "+ dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performOnsiteOffsiteDirections(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 
-	@Test(priority = 3, enabled = true, dataProvider = "getData")
+	@Test(priority = 4, enabled = true, dataProvider = "getData")
 	public void validateOffsiteOnsiteDirections(HashMap<String, String> dataMap) throws InterruptedException {
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode("Validating offsite to onsite directions" + dataMap.get("BROWSER_NAME") + " for "
-				+ dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating offsite to onsite directions" + dataMap.get("BROWSER_NAME") + " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performOffsiteOnsiteDirections(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 	
-	@Test(priority = 4, enabled = true, dataProvider = "getData")
+	@Test(priority = 5, enabled = true, dataProvider = "getData")
 	public void validateGoogleResults(HashMap<String, String> dataMap) {
 		initialization(dataMap.get("BROWSER_NAME"));
-		extentTest = parent.createNode(
-				"Validating Google Results" + dataMap.get("BROWSER_NAME") + " for " + dataMap.get("CAMPUS_NAME"));
+		extentTest = parent.createNode("Validating Google Results" + dataMap.get("BROWSER_NAME") + " for " + dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performGoogleSearch(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
 	}
 	
-	@Test(priority = 5, enabled = true, dataProvider = "getData")
+	@Test(priority = 6, enabled = true, dataProvider = "getData")
 	public void validateReverseDirections(HashMap<String, String> dataMap) throws InterruptedException {
 		initialization(dataMap.get("BROWSER_NAME"));
 		extentTest = parent.createNode("Validating Reverse directions on "+ dataMap.get("BROWSER_NAME")+ " for " +dataMap.get("CAMPUS_NAME"));
 		WebBL wb = new WebBL();
 		outputMap = wb.performReverse(driver, dataMap);
 		wb.validateResults(extentTest, outputMap);
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
 	}
 
 //	@Test(priority = 10, enabled = true, dataProvider = "getData")
@@ -175,8 +176,5 @@ public class WebNavigationDirectionsTestCases extends TestBase {
 //		wb.validateResults(extentTest, outputMap);
 //	}
 
-	@AfterMethod
-	public void tearDown() {
-		driver.quit();
-	}
+	
 }
