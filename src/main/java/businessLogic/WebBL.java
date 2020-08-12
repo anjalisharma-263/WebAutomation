@@ -419,6 +419,20 @@ public class WebBL {
 	// }
 	// }
 
+//	public void performPrerequisites(WebDriver driver, HashMap<String, String> dataMap) {
+//		try {
+//			driver.get(dataMap.get("URL"));
+//			System.out.println(dataMap);
+//			Thread.sleep(5000);
+//			acceptTermsDisplayed(dataMap);
+//			homePage.clickStartingPoint();
+//			dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
+//			selectLocation(dataMap);
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
+	
 	public void performPrerequisites(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			driver.get(dataMap.get("URL"));
@@ -427,21 +441,9 @@ public class WebBL {
 			acceptTermsDisplayed(dataMap);
 			homePage.clickStartingPoint();
 			dirPage.enterStartingPoint(dataMap.get("STARTING_POINT"));
-			selectLocation(dataMap);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
-	public void selectLocation(HashMap<String, String> dataMap) {
-		try {
-			if (dataMap.get("STARTING_POINT").contains("the Cafe17 ")) {
-				dirPage.selectOffsiteLocation();
-			} else {
-				dirPage.ExpandIconPoint();
-				dirPage.clickMapIt();
-			}
-			Thread.sleep(1000);
+			dirPage.ExpandIconPoint();
+			dirPage.clickMapIt();
+			Thread.sleep(2000);
 			dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
 			if (dataMap.get("DESTINATION_POINT").contains("The cafe17 ")) {
 				dirPage.selectOffsiteLocation();
@@ -453,6 +455,27 @@ public class WebBL {
 			System.out.println(e);
 		}
 	}
+
+//	public void selectLocation(HashMap<String, String> dataMap) {
+//		try {
+//			if (dataMap.get("STARTING_POINT").contains("the Cafe17 ")) {
+//				dirPage.selectOffsiteLocation();
+//			} else {
+//				dirPage.ExpandIconPoint();
+//				dirPage.clickMapIt();
+//			}
+//			Thread.sleep(1000);
+//			dirPage.enterDestinationPoint(dataMap.get("DESTINATION_POINT"));
+//			if (dataMap.get("DESTINATION_POINT").contains("The cafe17 ")) {
+//				dirPage.selectOffsiteLocation();
+//			} else {
+//				dirPage.ExpandIconPoint();
+//				dirPage.clickMapIt();
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
 
 	public void performPrerequisitesDirectoryInternalSearch(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
