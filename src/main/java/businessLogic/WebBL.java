@@ -348,10 +348,9 @@ public class WebBL {
 		if (campusName.equals("AMC")) {
 			acceptEULATerms(dataMap);
 
-			// } else if (campusName.equals("FF") || campusName.equals("Edge"))
-			// {
-			// acceptEULATerms(dataMap); // This method handles EULA popup
-			// homePage.skipTutorial(); // This method handles Skip Tutorial
+		} else if (campusName.equals("SUMMA")) {
+			acceptEULATerms(dataMap); // This method handles EULA popup
+			homePage.skipTutorial(); // This method handles Skip Tutorial
 		} else {
 			homePage.skipTutorial();
 		}
