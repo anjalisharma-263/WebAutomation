@@ -161,7 +161,11 @@ public class WebDirectoryPage extends TestBase {
 	}
 
 	public Boolean isReverseIconEnabled() {
+		Boolean blnFlag = false;
 		blnFlag = reverseDirection.isEnabled();
+		if (blnFlag == false) {
+			blnFlag = true;
+		}
 		return blnFlag;
 	}
 
