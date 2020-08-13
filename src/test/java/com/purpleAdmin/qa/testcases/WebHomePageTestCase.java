@@ -15,7 +15,7 @@ import businessLogic.WebBL;
 
 public class WebHomePageTestCase extends  TestBase{
 	public static final String DETAIL_PAGE_DATA_SHEET = System.getProperty("user.dir") +"/src/main/java/com/purpleAdmin/qa/testdata/Test_Data.xls";
-	public static final String SHEET_NAME = "WebStage";
+	public static final String SHEET_NAME = "Campuses";
 	ExtentTest extentTest = null;
 	public static ExtentTest parent;
 	HashMap<String, String> outputMap;

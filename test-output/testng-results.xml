@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="194652" started-at="2020-08-12T18:45:00Z" finished-at="2020-08-12T18:48:15Z">
+  <suite name="Default suite" duration-ms="196850" started-at="2020-08-13T06:36:11Z" finished-at="2020-08-13T06:39:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="194652" started-at="2020-08-12T18:45:00Z" finished-at="2020-08-12T18:48:15Z">
+    <test name="Default test" duration-ms="196850" started-at="2020-08-13T06:36:11Z" finished-at="2020-08-13T06:39:28Z">
       <class name="com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases">
-        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="setExtentReport" is-config="true" duration-ms="365" started-at="2020-08-12T18:45:00Z" finished-at="2020-08-12T18:45:00Z">
+        <test-method status="PASS" signature="setExtentReport()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="setExtentReport" is-config="true" duration-ms="296" started-at="2020-08-13T06:36:11Z" finished-at="2020-08-13T06:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtentReport -->
-        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="createTest" is-config="true" duration-ms="24" started-at="2020-08-12T18:45:00Z" finished-at="2020-08-12T18:45:00Z">
+        <test-method status="PASS" signature="createTest()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="createTest" is-config="true" duration-ms="7" started-at="2020-08-13T06:36:11Z" finished-at="2020-08-13T06:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTest -->
-        <test-method status="FAIL" signature="validateKioskDirectoryMenu(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="validateKioskDirectoryMenu" duration-ms="193368" started-at="2020-08-12T18:45:01Z" data-provider="getData" finished-at="2020-08-12T18:48:14Z">
+        <test-method status="FAIL" signature="validateKioskDirectoryMenu(java.util.HashMap)[pri:1, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="validateKioskDirectoryMenu" duration-ms="195875" started-at="2020-08-13T06:36:11Z" data-provider="getData" finished-at="2020-08-13T06:39:27Z">
           <params>
             <param index="0">
               <value>
@@ -26,24 +26,24 @@
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Find a Desk or Room')]"}
-  (Session info: chrome=84.0.4147.105)
+  (Session info: chrome=84.0.4147.125)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-NJPJ0R9', ip: '10.8.0.30', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_66'
+System info: host: 'DESKTOP-NJPJ0R9', ip: '10.8.0.38', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_66'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.105, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\91965\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62500}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 4a412cf625b6a0d925f6e9cde543f3cf
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\91965\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55394}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: bae7e1c480f9b437ad708ae47bab1fa3
 *** Element info: {Using=xpath, value=//span[contains(text(),'Find a Desk or Room')]}]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Find a Desk or Room')]"}
-  (Session info: chrome=84.0.4147.105)
+  (Session info: chrome=84.0.4147.125)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-NJPJ0R9', ip: '10.8.0.30', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_66'
+System info: host: 'DESKTOP-NJPJ0R9', ip: '10.8.0.38', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_66'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.105, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\91965\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62500}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 4a412cf625b6a0d925f6e9cde543f3cf
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.125, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\91965\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55394}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: bae7e1c480f9b437ad708ae47bab1fa3
 *** Element info: {Using=xpath, value=//span[contains(text(),'Find a Desk or Room')]}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -100,11 +100,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateKioskDirectoryMenu -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="setUp" is-config="true" duration-ms="0" started-at="2020-08-12T18:45:01Z" finished-at="2020-08-12T18:45:01Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="setUp" is-config="true" duration-ms="0" started-at="2020-08-13T06:36:11Z" finished-at="2020-08-13T06:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="creatReport()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="creatReport" is-config="true" duration-ms="624" started-at="2020-08-12T18:48:14Z" finished-at="2020-08-12T18:48:15Z">
+        <test-method status="PASS" signature="creatReport()[pri:0, instance:com.purpleAdmin.qa.testcases.KioskDirectoryPageTestCases@3159c4b8]" name="creatReport" is-config="true" duration-ms="497" started-at="2020-08-13T06:39:27Z" finished-at="2020-08-13T06:39:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- creatReport -->

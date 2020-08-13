@@ -19,7 +19,7 @@ public class KioskDirectoryPageBL {
 	public void performKioskPrerequisites(WebDriver driver, HashMap<String, String> dataMap) {
 		try {
 			driver.get(dataMap.get("URL"));
-		    Thread.sleep(15000);
+		    Thread.sleep(20000);
 			khp.clickBeginBtn();
 			if (dataMap.get("CAMPUS_NAME").contains("Summahealth")) {
 				khp.clickSkipIntro();
